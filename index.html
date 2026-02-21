@@ -1,1883 +1,1659 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dembe Tours & Travel Safaris | Fort Portal, Uganda</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ===================== ROOT ===================== */
-:root {
-  --green-deep:   #0D2B1E;
-  --green-mid:    #1B4332;
-  --green-rich:   #2D6A4F;
-  --green-light:  #52B788;
-  --gold:         #D4A017;
-  --gold-light:   #F0C040;
-  --gold-pale:    #FDF3D0;
-  --cream:        #FAF6EE;
-  --text-dark:    #0D1F14;
-  --text-mid:     #3A5A40;
-  --text-light:   #8FAF9A;
-  --white:        #FFFFFF;
-  --shadow-lg: 0 25px 60px rgba(13,43,30,0.25);
-  --shadow-md: 0 10px 35px rgba(13,43,30,0.15);
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dembe Tours & Travel Safaris | Western Uganda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --forest: #1a3c2e;
+      --moss: #2d5a3d;
+      --sage: #4a7c5e;
+      --gold: #c9973a;
+      --amber: #e8b44e;
+      --cream: #f5efe6;
+      --sand: #e8dcc8;
+      --charcoal: #1c1c1c;
+      --white: #ffffff;
+      --mist: rgba(245,239,230,0.08);
+    }
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; font-size:16px; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
-  color: var(--text-dark);
-  overflow-x: hidden;
-  cursor: none;
-}
+    html { scroll-behavior: smooth; }
 
-/* Custom cursor */
-.cursor {
-  width: 12px; height: 12px;
-  background: var(--gold);
-  border-radius: 50%;
-  position: fixed; top:0; left:0;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%,-50%);
-  transition: transform 0.15s ease, width 0.3s, height 0.3s, background 0.3s;
-  mix-blend-mode: multiply;
-}
-.cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid var(--gold);
-  border-radius: 50%;
-  position: fixed; top:0; left:0;
-  pointer-events: none;
-  z-index: 99998;
-  transform: translate(-50%,-50%);
-  transition: all 0.25s ease;
-  opacity: 0.6;
-}
-.cursor.hover { width:20px; height:20px; background:var(--green-mid); }
-.cursor-ring.hover { width:56px; height:56px; opacity:1; border-color: var(--green-mid); }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--charcoal);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--green-deep); }
-::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+    /* ── CURSOR ── */
+    .cursor {
+      width: 12px; height: 12px;
+      background: var(--amber);
+      border-radius: 50%;
+      position: fixed; pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+      mix-blend-mode: difference;
+    }
+    .cursor-ring {
+      width: 38px; height: 38px;
+      border: 1.5px solid var(--amber);
+      border-radius: 50%;
+      position: fixed; pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
+    }
 
-/* ===================== NAV ===================== */
-nav {
-  position: fixed; top:0; left:0; right:0;
-  z-index: 1000;
-  padding: 1.5rem 4rem;
-  display: flex; align-items: center; justify-content: space-between;
-  transition: all 0.5s ease;
-}
-nav.solid {
-  background: rgba(13,43,30,0.97);
-  backdrop-filter: blur(20px);
-  padding: 1rem 4rem;
-  box-shadow: 0 4px 40px rgba(0,0,0,0.3);
-}
-.nav-brand {
-  display: flex; align-items: center; gap: 0.9rem;
-  text-decoration: none;
-}
-.nav-logo-emblem {
-  width: 48px; height: 48px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  border-radius: 12px;
-  display: flex; align-items:center; justify-content:center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 20px rgba(212,160,23,0.4);
-  flex-shrink: 0;
-  position: relative;
-  overflow: hidden;
-}
-.nav-logo-emblem::after {
-  content:'';
-  position: absolute; top:-50%; left:-50%;
-  width:200%; height:200%;
-  background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
-  animation: sheen 4s infinite;
-}
-@keyframes sheen { 0%,100%{transform:translateX(-100%)} 50%{transform:translateX(100%)} }
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(26,60,46,0.97);
+      padding: 14px 60px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.4);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 44px; height: 44px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: var(--forest);
+    }
+    .nav-logo-text {
+      line-height: 1.1;
+    }
+    .nav-logo-text strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      letter-spacing: 0.5px;
+    }
+    .nav-logo-text span {
+      font-size: 0.65rem;
+      color: var(--amber);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(245,239,230,0.85);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--amber);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--forest) !important;
+      padding: 10px 24px;
+      border-radius: 2px;
+      font-weight: 600 !important;
+      letter-spacing: 1.2px !important;
+    }
+    .nav-cta:hover { background: var(--amber) !important; color: var(--forest) !important; }
+    .nav-cta::after { display: none !important; }
+    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { width: 25px; height: 2px; background: var(--cream); display: block; transition: 0.3s; }
 
-.nav-brand-text { line-height:1.1; }
-.nav-brand-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem; font-weight: 700;
-  color: white; letter-spacing: 0.02em;
-  display: block;
-}
-.nav-brand-sub {
-  font-size: 0.62rem; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--gold-light);
-  display: block;
-}
-.nav-links {
-  list-style:none;
-  display: flex; gap: 2.5rem;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
-  font-size: 0.82rem; font-weight:500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  position: relative;
-  transition: color 0.3s;
-}
-.nav-links a::after {
-  content:''; position:absolute; bottom:-5px; left:0;
-  width:0; height:1.5px; background:var(--gold);
-  transition: width 0.3s ease;
-}
-.nav-links a:hover { color:var(--gold-light); }
-.nav-links a:hover::after { width:100%; }
-.nav-wa-btn {
-  display: flex; align-items: center; gap: 0.5rem;
-  background: #25D366;
-  color: white !important;
-  padding: 0.6rem 1.4rem;
-  border-radius: 50px;
-  font-weight: 600 !important;
-  font-size: 0.82rem !important;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  transition: all 0.3s;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
-}
-.nav-wa-btn:hover { background:#128C7E; transform:translateY(-2px); box-shadow:0 8px 28px rgba(37,211,102,0.4); }
-.nav-wa-btn::after { display:none !important; }
-.hamburger {
-  display:none; flex-direction:column; gap:5px;
-  cursor:pointer; padding:4px;
-}
-.hamburger span {
-  display:block; width:26px; height:2px;
-  background:white; border-radius:2px;
-  transition: all 0.3s;
-}
+    /* ── HERO ── */
+    .hero {
+      height: 100vh; min-height: 700px;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(26,60,46,0.7) 0%, rgba(0,0,0,0.55) 60%),
+                  url('hero-rwenzori.jpg') center/cover no-repeat;
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.06); }
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, var(--charcoal) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+      max-width: 900px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--amber);
+      color: var(--amber);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.3s;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.5s;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--amber);
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(245,239,230,0.82);
+      font-weight: 300;
+      max-width: 580px;
+      margin: 0 auto 42px;
+      line-height: 1.75;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.7s;
+    }
+    .hero-btns {
+      display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.9s;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--forest);
+      padding: 16px 38px;
+      border-radius: 2px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--amber); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1.5px solid rgba(245,239,230,0.6);
+      color: var(--cream);
+      padding: 15px 34px;
+      border-radius: 2px;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: border-color 0.3s, color 0.3s, transform 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
+    .hero-scroll {
+      position: absolute; bottom: 36px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(245,239,230,0.6);
+      font-size: 0.65rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--amber), transparent);
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
 
-/* ===================== HERO ===================== */
-#hero {
-  height:100vh; min-height:700px;
-  position: relative;
-  display:flex; align-items:center; justify-content:center;
-  overflow:hidden;
-}
-.hero-slides { position:absolute; inset:0; }
-.hero-slide {
-  position:absolute; inset:0;
-  background-size:cover; background-position:center;
-  opacity:0;
-  transition: opacity 1.5s ease;
-}
-.hero-slide.active { opacity:1; }
-.hero-slide:nth-child(1) {
-  background-image:
-    linear-gradient(135deg, rgba(13,43,30,0.72) 0%, rgba(0,0,0,0.3) 60%, rgba(13,43,30,0.5) 100%),
-    url('https://images.unsplash.com/photo-1567177662154-dfeb4c93b6ae?w=1800&q=85');
-}
-.hero-slide:nth-child(2) {
-  background-image:
-    linear-gradient(135deg, rgba(13,43,30,0.65) 0%, rgba(0,0,0,0.25) 60%, rgba(13,43,30,0.55) 100%),
-    url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1800&q=85');
-}
-.hero-slide:nth-child(3) {
-  background-image:
-    linear-gradient(135deg, rgba(13,43,30,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(13,43,30,0.6) 100%),
-    url('https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1800&q=85');
-}
-.hero-slide:nth-child(4) {
-  background-image:
-    linear-gradient(135deg, rgba(13,43,30,0.68) 0%, rgba(0,0,0,0.3) 60%, rgba(13,43,30,0.55) 100%),
-    url('https://images.unsplash.com/photo-1612893786649-67abf4d5f32d?w=1800&q=85');
-}
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      background: var(--forest);
+      padding: 28px 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      border-top: 2px solid var(--gold);
+    }
+    .stat-item {
+      text-align: center;
+      padding: 10px;
+    }
+    .stat-item strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--amber);
+    }
+    .stat-item span {
+      font-size: 0.72rem;
+      color: rgba(245,239,230,0.7);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
-.hero-grain {
-  position:absolute; inset:0; z-index:1;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity:0.5; pointer-events:none;
-}
+    /* ── SECTION COMMON ── */
+    section { padding: 100px 60px; }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--amber);
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-tag::before {
+      content: '';
+      width: 30px; height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .section-desc {
+      color: rgba(245,239,230,0.7);
+      font-size: 1rem;
+      line-height: 1.85;
+      max-width: 540px;
+    }
 
-.hero-content {
-  position:relative; z-index:5;
-  text-align:center;
-  padding:0 1.5rem;
-  max-width:900px;
-}
-.hero-eyebrow {
-  display:inline-flex; align-items:center; gap:0.8rem;
-  border:1px solid rgba(212,160,23,0.5);
-  border-radius:30px;
-  padding:0.45rem 1.4rem;
-  color: var(--gold-light);
-  font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase;
-  backdrop-filter:blur(6px);
-  background:rgba(212,160,23,0.08);
-  margin-bottom:1.8rem;
-  opacity:0; animation: fadeUp 0.8s 0.5s ease forwards;
-}
-.hero-eyebrow span { width:20px; height:1px; background:var(--gold); display:inline-block; }
+    /* ── ABOUT ── */
+    .about {
+      background: #111;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%; height: 520px;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+    .about-img-float {
+      position: absolute;
+      bottom: -30px; right: -30px;
+      width: 200px; height: 200px;
+      object-fit: cover;
+      border: 5px solid var(--charcoal);
+      border-radius: 2px;
+    }
+    .about-badge {
+      position: absolute;
+      top: 30px; left: -30px;
+      background: var(--gold);
+      color: var(--forest);
+      padding: 16px 22px;
+      text-align: center;
+      border-radius: 2px;
+    }
+    .about-badge strong { display: block; font-size: 1.8rem; font-family: 'Playfair Display', serif; }
+    .about-badge span { font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 34px;
+    }
+    .about-feature {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,151,58,0.15);
+      border-radius: 2px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .about-feature:hover {
+      border-color: rgba(201,151,58,0.5);
+      background: rgba(201,151,58,0.05);
+    }
+    .about-feature-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(201,151,58,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--amber);
+      font-size: 15px;
+    }
+    .about-feature h4 { font-size: 0.85rem; margin-bottom: 4px; color: var(--cream); }
+    .about-feature p { font-size: 0.75rem; color: rgba(245,239,230,0.55); line-height: 1.6; }
 
-.hero-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(4.5rem, 12vw, 10.5rem);
-  color: white;
-  line-height: 0.88;
-  letter-spacing: 0.02em;
-  margin-bottom: 0.3rem;
-  text-shadow: 0 4px 50px rgba(0,0,0,0.5);
-  opacity:0; animation:fadeUp 0.9s 0.7s ease forwards;
-}
-.hero-title-italic {
-  font-family:'Playfair Display', serif;
-  font-style:italic; font-weight:400;
-  font-size:clamp(3.5rem,9vw,8rem);
-  color:var(--gold-light);
-  display:block;
-  letter-spacing:0.01em;
-  opacity:0; animation:fadeUp 0.9s 0.9s ease forwards;
-}
-.hero-sub {
-  font-size:clamp(1rem,2vw,1.25rem);
-  color:rgba(255,255,255,0.75);
-  font-style:italic;
-  font-family:'Playfair Display',serif;
-  margin:1.2rem 0 0.8rem;
-  opacity:0; animation:fadeUp 0.8s 1.1s ease forwards;
-}
-.hero-desc {
-  color:rgba(255,255,255,0.65);
-  font-size:0.95rem; line-height:1.8;
-  max-width:560px; margin:0 auto 2.5rem;
-  opacity:0; animation:fadeUp 0.8s 1.3s ease forwards;
-}
-.hero-btns {
-  display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
-  opacity:0; animation:fadeUp 0.8s 1.5s ease forwards;
-}
-.btn-gold {
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  color: var(--green-deep);
-  padding:0.95rem 2.4rem; border-radius:50px;
-  font-weight:600; font-size:0.9rem;
-  text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;
-  display:flex; align-items:center; gap:0.6rem;
-  transition: all 0.3s;
-  box-shadow:0 8px 35px rgba(212,160,23,0.45);
-}
-.btn-gold:hover { transform:translateY(-4px); box-shadow:0 16px 45px rgba(212,160,23,0.55); }
-.btn-ghost {
-  border:1.5px solid rgba(255,255,255,0.4);
-  color:white;
-  padding:0.95rem 2.4rem; border-radius:50px;
-  font-weight:500; font-size:0.9rem;
-  text-decoration:none; letter-spacing:0.06em; text-transform:uppercase;
-  display:flex; align-items:center; gap:0.6rem;
-  transition: all 0.3s;
-  backdrop-filter:blur(6px);
-  background:rgba(255,255,255,0.06);
-}
-.btn-ghost:hover { border-color:var(--gold); color:var(--gold-light); transform:translateY(-4px); }
+    /* ── DESTINATIONS ── */
+    .destinations { background: var(--charcoal); }
+    .destinations-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 60px; flex-wrap: wrap; gap: 20px;
+    }
+    .destinations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 20px;
+    }
+    .dest-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      cursor: pointer;
+      group: true;
+    }
+    .dest-card:nth-child(1) { grid-row: span 2; }
+    .dest-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .dest-card:nth-child(1) img { min-height: 100%; height: 560px; }
+    .dest-card:hover img { transform: scale(1.06); }
+    .dest-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 28px;
+      transition: background 0.3s;
+    }
+    .dest-card:hover .dest-overlay {
+      background: linear-gradient(to top, rgba(26,60,46,0.92) 0%, rgba(0,0,0,0.2) 60%);
+    }
+    .dest-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--forest);
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      align-self: flex-start;
+    }
+    .dest-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .dest-card:nth-child(1) .dest-name { font-size: 2rem; }
+    .dest-desc {
+      font-size: 0.78rem;
+      color: rgba(245,239,230,0.75);
+      line-height: 1.6;
+      max-width: 340px;
+      display: none;
+      margin-bottom: 14px;
+    }
+    .dest-card:nth-child(1) .dest-desc { display: block; }
+    .dest-card:hover .dest-desc { display: block; }
+    .dest-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--amber);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      transform: translateY(10px);
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .dest-card:hover .dest-link, .dest-card:nth-child(1) .dest-link {
+      opacity: 1; transform: translateY(0);
+    }
 
-/* slide indicators */
-.hero-indicators {
-  position:absolute; bottom:5rem; left:50%; transform:translateX(-50%);
-  display:flex; gap:8px; z-index:5;
-}
-.indicator {
-  width:28px; height:3px; border-radius:2px;
-  background:rgba(255,255,255,0.3);
-  cursor:pointer; transition:all 0.4s;
-}
-.indicator.active { background:var(--gold); width:50px; }
+    /* ── EXPERIENCES ── */
+    .experiences { background: var(--forest); }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .exp-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(201,151,58,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .exp-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border-color: rgba(201,151,58,0.5);
+    }
+    .exp-img {
+      width: 100%; height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .exp-body { padding: 22px; }
+    .exp-icon {
+      width: 46px; height: 46px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--forest);
+      font-size: 18px;
+      margin-bottom: 14px;
+      margin-top: -40px;
+      position: relative;
+      border: 3px solid var(--forest);
+    }
+    .exp-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .exp-desc { font-size: 0.78rem; color: rgba(245,239,230,0.65); line-height: 1.7; }
+    .exp-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--amber);
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      margin-top: 14px;
+      font-weight: 600;
+    }
 
-.hero-scroll-hint {
-  position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%);
-  display:flex; flex-direction:column; align-items:center; gap:0.5rem;
-  color:rgba(255,255,255,0.4); font-size:0.65rem; letter-spacing:0.25em;
-  text-transform:uppercase; z-index:5;
-  animation:bounce 2.5s infinite;
-}
-.scroll-line {
-  width:1.5px; height:40px;
-  background:linear-gradient(to bottom, var(--gold), transparent);
-}
-@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+    /* ── ACCOMMODATION ── */
+    .accommodation { background: #0e0e0e; }
+    .acc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 60px;
+    }
+    .acc-card {
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .acc-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .acc-img { width: 100%; height: 240px; object-fit: cover; display: block; }
+    .acc-stars { padding: 18px 22px 0; display: flex; gap: 4px; }
+    .acc-stars i { color: var(--gold); font-size: 12px; }
+    .acc-body { padding: 12px 22px 22px; }
+    .acc-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .acc-loc {
+      font-size: 0.72rem;
+      color: var(--amber);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .acc-desc { font-size: 0.78rem; color: rgba(245,239,230,0.6); line-height: 1.7; margin-bottom: 18px; }
+    .acc-amenities { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+    .acc-amenity {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.68rem;
+      color: rgba(245,239,230,0.55);
+      letter-spacing: 0.5px;
+    }
+    .acc-amenity i { color: var(--sage); font-size: 11px; }
+    .acc-cta {
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--amber);
+      padding: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+    .acc-cta:hover { background: var(--gold); color: var(--forest); }
 
-/* stats bar */
-.hero-stats-bar {
-  position:absolute; bottom:0; left:0; right:0; z-index:5;
-  background:rgba(13,43,30,0.95);
-  backdrop-filter:blur(15px);
-  border-top:1px solid rgba(212,160,23,0.2);
-  display:flex; justify-content:center;
-}
-.stat-pill {
-  display:flex; align-items:center; gap:1rem;
-  padding:1rem 2.5rem;
-  border-right:1px solid rgba(255,255,255,0.07);
-  flex:1; max-width:220px; justify-content:center;
-}
-.stat-pill:last-child { border-right:none; }
-.stat-icon { font-size:1.4rem; flex-shrink:0; }
-.stat-info {}
-.stat-num {
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.7rem; color:var(--gold);
-  letter-spacing:0.05em; line-height:1;
-}
-.stat-lbl {
-  font-size:0.6rem; color:rgba(255,255,255,0.45);
-  letter-spacing:0.18em; text-transform:uppercase;
-}
+    /* ── WILDLIFE MARQUEE ── */
+    .wildlife-marquee {
+      background: var(--forest);
+      border-top: 1px solid rgba(201,151,58,0.2);
+      border-bottom: 1px solid rgba(201,151,58,0.2);
+      padding: 20px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex; align-items: center; gap: 48px;
+      animation: marquee 25s linear infinite;
+    }
+    .marquee-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(245,239,230,0.7);
+    }
+    .marquee-item i { color: var(--amber); font-size: 14px; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
 
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(30px); }
-  to   { opacity:1; transform:translateY(0); }
-}
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--charcoal); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 60px;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 2px;
+      padding: 34px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .testi-card:hover { border-color: rgba(201,151,58,0.4); }
+    .testi-quote {
+      font-size: 4rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      line-height: 0.6;
+      margin-bottom: 18px;
+      opacity: 0.4;
+    }
+    .testi-text {
+      font-size: 0.88rem;
+      line-height: 1.85;
+      color: rgba(245,239,230,0.8);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testi-stars { display: flex; gap: 4px; margin-bottom: 18px; }
+    .testi-stars i { color: var(--gold); font-size: 12px; }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+    .testi-name { font-weight: 600; font-size: 0.85rem; }
+    .testi-origin { font-size: 0.7rem; color: rgba(245,239,230,0.5); letter-spacing: 1px; }
 
-/* ===================== MARQUEE ===================== */
-.marquee-wrap {
-  background: var(--gold);
-  padding:0.75rem 0; overflow:hidden;
-}
-.marquee-track {
-  display:flex; width:max-content;
-  animation: marquee 28s linear infinite;
-}
-.marquee-item {
-  white-space:nowrap;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.1rem;
-  color: var(--green-deep);
-  letter-spacing:0.12em;
-  padding:0 2rem;
-  display:flex; align-items:center; gap:2rem;
-}
-.marquee-item::after { content:'✦'; color:var(--green-mid); }
-@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    /* ── TOUR PACKAGES ── */
+    .packages { background: #111; }
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 60px;
+    }
+    .pkg-card {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .pkg-card.featured { border-color: var(--gold); }
+    .pkg-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+    .pkg-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--gold);
+      color: var(--forest);
+      font-size: 0.6rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+    .pkg-img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .pkg-body { padding: 24px; }
+    .pkg-duration {
+      display: flex; align-items: center; gap: 6px;
+      color: var(--amber);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .pkg-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .pkg-desc { font-size: 0.78rem; color: rgba(245,239,230,0.6); line-height: 1.7; margin-bottom: 20px; }
+    .pkg-highlights { margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px; }
+    .pkg-highlight { display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: rgba(245,239,230,0.7); }
+    .pkg-highlight i { color: var(--sage); font-size: 11px; }
+    .pkg-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .pkg-price strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--amber);
+    }
+    .pkg-price span { font-size: 0.65rem; color: rgba(245,239,230,0.45); letter-spacing: 1px; }
+    .pkg-btn {
+      background: var(--forest);
+      border: 1px solid var(--gold);
+      color: var(--amber);
+      padding: 10px 20px;
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+    .pkg-card.featured .pkg-btn { background: var(--gold); color: var(--forest); border-color: var(--gold); }
+    .pkg-btn:hover { background: var(--gold); color: var(--forest); }
 
-/* ===================== ABOUT ===================== */
-#about { padding:7rem 0; background:var(--cream); }
-.about-wrap {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:5rem; align-items:center;
-}
-.about-visual { position:relative; height:580px; }
-.about-img-a {
-  position:absolute; top:0; left:0;
-  width:72%; height:82%;
-  object-fit:cover; border-radius:6px;
-  box-shadow: var(--shadow-lg);
-}
-.about-img-b {
-  position:absolute; bottom:0; right:0;
-  width:56%; height:56%;
-  object-fit:cover; border-radius:6px;
-  box-shadow: var(--shadow-lg);
-  border:6px solid var(--cream);
-}
-.about-badge {
-  position:absolute; top:48%; left:63%;
-  width:90px; height:90px; border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Playfair Display',serif;
-  font-size:0.7rem; font-style:italic;
-  font-weight:700; color:var(--green-deep);
-  text-align:center; line-height:1.3;
-  z-index:3; box-shadow:0 8px 35px rgba(212,160,23,0.5);
-  padding:0.5rem;
-}
-.about-leaf {
-  position:absolute; bottom:42%; right:-2rem;
-  font-size:4rem; opacity:0.12;
-  transform:rotate(30deg);
-  color:var(--green-rich);
-  pointer-events:none;
-}
-.about-text .section-tag {
-  font-size:0.68rem; letter-spacing:0.35em; text-transform:uppercase;
-  color:var(--gold); font-weight:600;
-  display:flex; align-items:center; gap:0.7rem;
-  margin-bottom:0.9rem;
-}
-.section-tag::before {
-  content:''; display:inline-block;
-  width:32px; height:1.5px; background:var(--gold);
-}
-.about-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,3.5vw,2.9rem);
-  font-weight:400; line-height:1.2;
-  color:var(--green-deep); margin-bottom:1.5rem;
-}
-.about-title em { font-style:italic; color:var(--green-rich); }
-.about-text p { font-size:0.97rem; line-height:1.85; color:#4a5c4f; margin-bottom:1.2rem; }
-.features-grid {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:0.8rem; margin-top:2rem;
-}
-.feat-card {
-  background:white;
-  border-radius:10px;
-  padding:1rem 1.2rem;
-  border-left:3px solid var(--gold);
-  box-shadow:0 4px 20px rgba(13,43,30,0.06);
-  display:flex; align-items:flex-start; gap:0.8rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.feat-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md); }
-.feat-icon { font-size:1.5rem; flex-shrink:0; }
-.feat-info strong { display:block; font-size:0.88rem; color:var(--green-deep); margin-bottom:0.2rem; }
-.feat-info span { font-size:0.78rem; color:#6a8070; line-height:1.4; }
-.whatsapp-link {
-  display:inline-flex; align-items:center; gap:0.6rem;
-  background:#25D366; color:white;
-  padding:0.9rem 2rem; border-radius:50px;
-  font-weight:600; font-size:0.9rem;
-  text-decoration:none; letter-spacing:0.05em;
-  margin-top:2rem;
-  transition:all 0.3s;
-  box-shadow:0 6px 28px rgba(37,211,102,0.35);
-}
-.whatsapp-link:hover { background:#128C7E; transform:translateY(-3px); box-shadow:0 12px 38px rgba(37,211,102,0.45); }
+    /* ── CONTACT / BOOK ── */
+    .contact-section {
+      background: linear-gradient(135deg, var(--forest) 0%, #0d2018 100%);
+      padding: 100px 60px;
+    }
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .contact-info p {
+      color: rgba(245,239,230,0.7);
+      line-height: 1.85;
+      margin-bottom: 40px;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .contact-item-icon {
+      width: 46px; height: 46px;
+      background: rgba(201,151,58,0.15);
+      border: 1px solid rgba(201,151,58,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--amber);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .contact-item-text strong { display: block; font-size: 0.78rem; margin-bottom: 2px; }
+    .contact-item-text span { font-size: 0.82rem; color: rgba(245,239,230,0.7); }
+    .contact-item-text a { color: var(--amber); text-decoration: none; font-size: 0.88rem; font-weight: 500; }
+    .contact-form {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 2px;
+      padding: 42px;
+    }
+    .contact-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(245,239,230,0.6);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--cream);
+      padding: 13px 16px;
+      font-size: 0.85rem;
+      font-family: 'Jost', sans-serif;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group select option { background: var(--forest); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--forest);
+      border: none;
+      padding: 16px;
+      font-size: 0.82rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-family: 'Jost', sans-serif;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.3s, transform 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .form-submit:hover { background: var(--amber); transform: translateY(-2px); }
 
-/* ===================== DESTINATIONS ===================== */
-#destinations { padding:7rem 0; background:var(--green-deep); }
-#destinations .section-tag { color:var(--gold-light); }
-#destinations .section-tag::before { background:var(--gold-light); }
-.dest-header {
-  display:flex; align-items:flex-end; justify-content:space-between;
-  margin-bottom:3.5rem; flex-wrap:wrap; gap:1.5rem;
-}
-.dest-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,4vw,3rem);
-  font-weight:400; color:white; line-height:1.2;
-}
-.dest-title em { color:var(--gold-light); font-style:italic; }
-.dest-subtitle { color:rgba(255,255,255,0.5); font-size:0.9rem; line-height:1.7; max-width:340px; }
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      z-index: 500;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+    }
+    .whatsapp-btn {
+      width: 58px; height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 26px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: waPulse 2.5s infinite;
+    }
+    .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(37,211,102,0.5); }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 6px 40px rgba(37,211,102,0.7); }
+    }
+    .whatsapp-label {
+      background: var(--forest);
+      color: var(--cream);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      border: 1px solid rgba(201,151,58,0.3);
+      white-space: nowrap;
+    }
 
-.dest-grid {
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  grid-template-rows:280px 280px;
-  gap:1rem;
-}
-.dest-card {
-  position:relative; overflow:hidden; border-radius:10px;
-  cursor:pointer;
-}
-.dest-card:nth-child(1) { grid-column:1/6; grid-row:1/2; }
-.dest-card:nth-child(2) { grid-column:6/9; grid-row:1/2; }
-.dest-card:nth-child(3) { grid-column:9/13; grid-row:1/2; }
-.dest-card:nth-child(4) { grid-column:1/5; grid-row:2/3; }
-.dest-card:nth-child(5) { grid-column:5/9; grid-row:2/3; }
-.dest-card:nth-child(6) { grid-column:9/13; grid-row:2/3; }
+    /* ── FOOTER ── */
+    footer {
+      background: #080e0a;
+      padding: 70px 60px 30px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 50px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand-logo {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 18px;
+    }
+    .footer-brand-logo-icon {
+      width: 46px; height: 46px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: var(--forest);
+    }
+    .footer-brand-logo-text strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+    .footer-brand-logo-text span {
+      font-size: 0.6rem;
+      color: var(--amber);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .footer-brand-desc {
+      font-size: 0.8rem;
+      color: rgba(245,239,230,0.5);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(245,239,230,0.6);
+      font-size: 13px;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .footer-social:hover { background: var(--gold); color: var(--forest); border-color: var(--gold); }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(245,239,230,0.55);
+      font-size: 0.82rem;
+      transition: color 0.3s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-links a::before { content: '→'; font-size: 0.7rem; color: var(--sage); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 14px;
+    }
+    .footer-bottom p { font-size: 0.72rem; color: rgba(245,239,230,0.35); }
+    .footer-bottom a { color: var(--amber); text-decoration: none; }
+    .footer-dev { font-size: 0.7rem; color: rgba(245,239,230,0.3); }
+    .footer-dev a { color: var(--sage); text-decoration: none; }
 
-.dest-img {
-  width:100%; height:100%;
-  object-fit:cover;
-  transition:transform 0.8s ease;
-}
-.dest-card:hover .dest-img { transform:scale(1.08); }
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-.dest-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(13,43,30,0.88) 0%, rgba(0,0,0,0.1) 60%);
-  transition: background 0.4s;
-}
-.dest-card:hover .dest-overlay {
-  background:linear-gradient(to top, rgba(13,43,30,0.95) 0%, rgba(0,0,0,0.2) 60%);
-}
-.dest-info {
-  position:absolute; bottom:0; left:0; right:0;
-  padding:1.5rem;
-}
-.dest-tag {
-  font-size:0.62rem; letter-spacing:0.25em;
-  text-transform:uppercase; color:var(--gold-light);
-  border:1px solid rgba(212,160,23,0.4);
-  padding:0.25rem 0.7rem; border-radius:20px;
-  display:inline-block; margin-bottom:0.6rem;
-  backdrop-filter:blur(4px); background:rgba(212,160,23,0.08);
-}
-.dest-name {
-  font-family:'Playfair Display',serif;
-  font-size:1.2rem; color:white; font-weight:700;
-  margin-bottom:0.3rem; display:block;
-}
-.dest-desc {
-  font-size:0.78rem; color:rgba(255,255,255,0.65);
-  line-height:1.5;
-  max-height:0; overflow:hidden;
-  transition: max-height 0.4s ease, opacity 0.4s;
-  opacity:0;
-}
-.dest-card:hover .dest-desc { max-height:80px; opacity:1; }
-.dest-arrow {
-  position:absolute; top:1.2rem; right:1.2rem;
-  width:36px; height:36px; border-radius:50%;
-  background:rgba(255,255,255,0.1);
-  border:1px solid rgba(255,255,255,0.2);
-  display:flex; align-items:center; justify-content:center;
-  color:white; font-size:0.9rem;
-  transition: all 0.3s;
-  transform:translate(10px,-10px); opacity:0;
-}
-.dest-card:hover .dest-arrow { transform:translate(0,0); opacity:1; background:var(--gold); border-color:var(--gold); color:var(--green-deep); }
-
-/* ===================== EXPERIENCES ===================== */
-#experiences { padding:7rem 0; background:white; }
-.exp-header { text-align:center; max-width:650px; margin:0 auto 4rem; }
-.exp-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,4vw,3rem);
-  font-weight:400; color:var(--green-deep);
-  margin-bottom:1rem;
-}
-.exp-title em { font-style:italic; color:var(--green-rich); }
-.exp-lead { color:#5a7060; font-size:0.97rem; line-height:1.8; }
-
-.exp-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;
-  margin-bottom:3rem;
-}
-.exp-card {
-  background:var(--cream);
-  border-radius:14px; overflow:hidden;
-  transition:transform 0.35s, box-shadow 0.35s;
-  border:1px solid rgba(13,43,30,0.06);
-}
-.exp-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
-.exp-img-wrap { height:220px; overflow:hidden; position:relative; }
-.exp-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s; }
-.exp-card:hover .exp-img-wrap img { transform:scale(1.07); }
-.exp-icon-badge {
-  position:absolute; bottom:-18px; right:1.5rem;
-  width:44px; height:44px; border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.2rem;
-  box-shadow:0 4px 20px rgba(212,160,23,0.4);
-  border:3px solid white;
-}
-.exp-body { padding:2rem 1.5rem 1.5rem; }
-.exp-cat {
-  font-size:0.63rem; letter-spacing:0.25em;
-  text-transform:uppercase; color:var(--gold);
-  font-weight:600; margin-bottom:0.5rem;
-}
-.exp-name {
-  font-family:'Playfair Display',serif;
-  font-size:1.2rem; font-weight:700;
-  color:var(--green-deep); margin-bottom:0.6rem; line-height:1.3;
-}
-.exp-text { font-size:0.83rem; color:#6a8070; line-height:1.65; margin-bottom:1rem; }
-.exp-meta {
-  display:flex; gap:1rem; flex-wrap:wrap;
-}
-.exp-meta-item {
-  display:flex; align-items:center; gap:0.3rem;
-  font-size:0.73rem; color:var(--text-mid);
-}
-.exp-meta-item span { font-size:0.8rem; }
-
-/* ===================== VIDEO/CTA BANNER ===================== */
-#cta-banner {
-  padding:8rem 0;
-  background:
-    linear-gradient(135deg,rgba(13,43,30,0.85) 0%,rgba(13,43,30,0.7) 100%),
-    url('https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=1600&q=85') center/cover no-repeat fixed;
-  text-align:center; position:relative; overflow:hidden;
-}
-#cta-banner::before {
-  content:''; position:absolute; inset:0;
-  background:radial-gradient(ellipse at center, rgba(212,160,23,0.08) 0%, transparent 70%);
-}
-.cta-inner { position:relative; z-index:2; max-width:720px; margin:0 auto; padding:0 2rem; }
-.cta-tag {
-  font-size:0.7rem; letter-spacing:0.35em; text-transform:uppercase;
-  color:var(--gold-light); margin-bottom:1.2rem;
-  display:flex; align-items:center; justify-content:center; gap:0.8rem;
-}
-.cta-tag::before, .cta-tag::after {
-  content:''; display:inline-block;
-  width:30px; height:1px; background:var(--gold);
-}
-.cta-heading {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.2rem,5vw,3.8rem);
-  font-weight:400; color:white;
-  line-height:1.15; margin-bottom:1.2rem;
-}
-.cta-heading em { font-style:italic; color:var(--gold-light); }
-.cta-body { color:rgba(255,255,255,0.7); font-size:1rem; line-height:1.8; margin-bottom:2.5rem; }
-.cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
-
-/* ===================== GALLERY ===================== */
-#gallery { padding:7rem 0; background:var(--green-deep); }
-.gallery-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,4vw,3rem); font-weight:400; color:white;
-  text-align:center; margin-bottom:0.5rem;
-}
-.gallery-title em { font-style:italic; color:var(--gold-light); }
-.gallery-sub { text-align:center; color:rgba(255,255,255,0.5); margin-bottom:3rem; font-size:0.9rem; }
-
-.gallery-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-template-rows:220px 220px;
-  gap:0.8rem;
-}
-.gal-item {
-  overflow:hidden; border-radius:8px; cursor:pointer;
-  position:relative;
-}
-.gal-item:nth-child(1) { grid-column:1/3; grid-row:1/2; }
-.gal-item:nth-child(5) { grid-column:3/5; grid-row:2/3; }
-.gal-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; }
-.gal-item:hover img { transform:scale(1.08); }
-.gal-item::after {
-  content:''; position:absolute; inset:0;
-  background:rgba(13,43,30,0); transition:background 0.3s;
-}
-.gal-item:hover::after { background:rgba(13,43,30,0.25); }
-.gal-caption {
-  position:absolute; bottom:0; left:0; right:0;
-  padding:1rem 1.2rem;
-  background:linear-gradient(to top, rgba(13,43,30,0.85), transparent);
-  color:white; font-size:0.8rem;
-  transform:translateY(10px); opacity:0;
-  transition:all 0.3s;
-}
-.gal-item:hover .gal-caption { transform:translateY(0); opacity:1; }
-
-/* ===================== TESTIMONIALS ===================== */
-#testimonials { padding:7rem 0; background:var(--cream); }
-.test-header { text-align:center; margin-bottom:4rem; }
-.test-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.8rem,3.5vw,2.8rem);
-  font-weight:400; color:var(--green-deep);
-}
-.test-title em { font-style:italic; color:var(--green-rich); }
-
-.test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
-.test-card {
-  background:white; border-radius:14px;
-  padding:2rem; position:relative;
-  box-shadow:0 4px 25px rgba(13,43,30,0.07);
-  border-top:3px solid var(--gold);
-  transition:transform 0.3s, box-shadow 0.3s;
-}
-.test-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); }
-.test-quote-mark {
-  font-family:'Playfair Display',serif;
-  font-size:5rem; line-height:0.7;
-  color:var(--gold-light); opacity:0.5;
-  margin-bottom:0.5rem;
-}
-.test-text { font-size:0.92rem; color:#5a7060; line-height:1.75; font-style:italic; margin-bottom:1.5rem; }
-.test-author { display:flex; align-items:center; gap:0.9rem; }
-.test-avatar {
-  width:46px; height:46px; border-radius:50%;
-  object-fit:cover; border:2px solid var(--gold);
-}
-.test-name { font-weight:600; font-size:0.88rem; color:var(--green-deep); display:block; }
-.test-country { font-size:0.75rem; color:#8a9e8f; }
-.test-stars { color:var(--gold); font-size:0.85rem; letter-spacing:0.1em; margin-bottom:0.8rem; }
-
-/* ===================== WHY CHOOSE US ===================== */
-#why { padding:7rem 0; background:linear-gradient(135deg,var(--green-mid) 0%,var(--green-deep) 100%); }
-.why-inner { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
-.why-content .section-tag { color:var(--gold-light); }
-.why-content .section-tag::before { background:var(--gold-light); }
-.why-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,3.5vw,2.8rem); font-weight:400; color:white;
-  line-height:1.2; margin-bottom:1.5rem;
-}
-.why-title em { font-style:italic; color:var(--gold-light); }
-.why-body { color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.8; margin-bottom:2rem; }
-.why-list { list-style:none; display:flex; flex-direction:column; gap:1rem; }
-.why-item {
-  display:flex; align-items:flex-start; gap:1rem;
-  color:rgba(255,255,255,0.85); font-size:0.9rem; line-height:1.6;
-}
-.why-check {
-  width:24px; height:24px; border-radius:50%;
-  background:rgba(212,160,23,0.2); border:1.5px solid var(--gold);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--gold-light); font-size:0.75rem;
-  flex-shrink:0; margin-top:1px;
-}
-.why-visual { position:relative; }
-.why-img-stack {
-  display:grid; grid-template-columns:1fr 1fr; gap:1rem;
-}
-.why-img-wrap { border-radius:10px; overflow:hidden; }
-.why-img-wrap:first-child { margin-top:2rem; }
-.why-img-wrap:last-child { margin-top:-2rem; }
-.why-img-wrap img { width:100%; height:200px; object-fit:cover; }
-.why-rating-chip {
-  position:absolute; bottom:-1rem; left:50%; transform:translateX(-50%);
-  background:white; border-radius:50px;
-  padding:0.8rem 1.8rem;
-  display:flex; align-items:center; gap:0.8rem;
-  box-shadow:var(--shadow-md);
-  white-space:nowrap;
-}
-.why-rating-chip .stars { color:var(--gold); font-size:0.9rem; }
-.why-rating-chip .rating-text { font-size:0.8rem; color:var(--green-mid); font-weight:600; }
-
-/* ===================== CONTACT ===================== */
-#contact { padding:7rem 0; background:white; }
-.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
-.contact-info .section-tag { margin-bottom:1rem; }
-.contact-title {
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.8rem,3vw,2.5rem);
-  font-weight:400; color:var(--green-deep); margin-bottom:1.2rem; line-height:1.2;
-}
-.contact-title em { font-style:italic; color:var(--green-rich); }
-.contact-body { color:#5a7060; font-size:0.95rem; line-height:1.8; margin-bottom:2rem; }
-.contact-details { display:flex; flex-direction:column; gap:1.2rem; margin-bottom:2rem; }
-.contact-row {
-  display:flex; align-items:flex-start; gap:1rem;
-  font-size:0.9rem; color:var(--text-dark);
-}
-.contact-row-icon {
-  width:42px; height:42px; border-radius:10px;
-  background:var(--gold-pale); border:1px solid rgba(212,160,23,0.2);
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.1rem; flex-shrink:0;
-}
-.contact-row-text strong { display:block; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-light); margin-bottom:0.15rem; }
-.contact-row-text a { color:var(--green-deep); text-decoration:none; font-weight:500; }
-.contact-row-text a:hover { color:var(--gold); }
-
-.contact-wa-big {
-  display:flex; align-items:center; gap:1rem;
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:white; padding:1.3rem 2rem; border-radius:14px;
-  text-decoration:none; font-weight:600;
-  transition:all 0.3s;
-  box-shadow:0 8px 30px rgba(37,211,102,0.3);
-}
-.contact-wa-big:hover { transform:translateY(-4px); box-shadow:0 16px 45px rgba(37,211,102,0.4); }
-.contact-wa-big .wa-icon { font-size:2rem; }
-.contact-wa-big .wa-text-main { display:block; font-size:1rem; }
-.contact-wa-big .wa-text-sub { display:block; font-size:0.75rem; opacity:0.8; font-weight:400; }
-
-.contact-form-wrap {
-  background:var(--cream); border-radius:18px;
-  padding:2.5rem; box-shadow:0 8px 40px rgba(13,43,30,0.07);
-}
-.form-title {
-  font-family:'Playfair Display',serif;
-  font-size:1.5rem; color:var(--green-deep); margin-bottom:1.5rem;
-}
-.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
-.form-group { display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1rem; }
-.form-group label { font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-mid); }
-.form-group input, .form-group select, .form-group textarea {
-  padding:0.85rem 1rem; border:1.5px solid rgba(13,43,30,0.1);
-  border-radius:8px; font-family:'DM Sans',sans-serif; font-size:0.9rem;
-  color:var(--text-dark); background:white;
-  outline:none; transition:border-color 0.3s;
-}
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  border-color:var(--green-rich);
-}
-.form-group textarea { resize:vertical; min-height:100px; }
-.form-submit {
-  width:100%; padding:1rem;
-  background:linear-gradient(135deg,var(--green-mid),var(--green-rich));
-  color:white; border:none; border-radius:50px;
-  font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:600;
-  letter-spacing:0.08em; text-transform:uppercase;
-  cursor:pointer; transition:all 0.3s;
-  box-shadow:0 6px 28px rgba(27,67,50,0.35);
-}
-.form-submit:hover { transform:translateY(-3px); box-shadow:0 12px 38px rgba(27,67,50,0.45); }
-
-/* ===================== FOOTER ===================== */
-footer {
-  background:var(--green-deep);
-  padding:5rem 0 2rem;
-}
-.footer-grid {
-  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:3rem; margin-bottom:3rem;
-}
-.footer-brand-logo {
-  display:flex; align-items:center; gap:0.8rem;
-  margin-bottom:1rem;
-}
-.footer-emblem {
-  width:44px; height:44px; border-radius:10px;
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  display:flex; align-items:center; justify-content:center;
-  font-size:1.3rem;
-}
-.footer-brand-name {
-  font-family:'Playfair Display',serif;
-  font-size:1.1rem; color:white; font-weight:700; display:block;
-}
-.footer-brand-sub { font-size:0.6rem; color:var(--gold-light); letter-spacing:0.2em; text-transform:uppercase; }
-.footer-about-text { color:rgba(255,255,255,0.5); font-size:0.85rem; line-height:1.75; margin-bottom:1.5rem; }
-.footer-socials { display:flex; gap:0.7rem; }
-.social-btn {
-  width:36px; height:36px; border-radius:50%;
-  background:rgba(255,255,255,0.07);
-  border:1px solid rgba(255,255,255,0.12);
-  display:flex; align-items:center; justify-content:center;
-  color:rgba(255,255,255,0.6); font-size:0.85rem;
-  text-decoration:none; transition:all 0.3s;
-}
-.social-btn:hover { background:var(--gold); border-color:var(--gold); color:var(--green-deep); }
-.footer-col h4 {
-  font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase;
-  color:var(--gold); font-weight:600; margin-bottom:1.2rem;
-}
-.footer-links { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
-.footer-links a {
-  color:rgba(255,255,255,0.5); text-decoration:none;
-  font-size:0.85rem; transition:color 0.3s;
-  display:flex; align-items:center; gap:0.5rem;
-}
-.footer-links a::before { content:'›'; color:var(--gold); opacity:0; transition:opacity 0.3s; }
-.footer-links a:hover { color:var(--gold-light); }
-.footer-links a:hover::before { opacity:1; }
-.footer-bottom {
-  border-top:1px solid rgba(255,255,255,0.07);
-  padding-top:2rem;
-  display:flex; align-items:center; justify-content:space-between;
-  flex-wrap:wrap; gap:1rem;
-}
-.footer-copy { font-size:0.78rem; color:rgba(255,255,255,0.3); }
-.footer-dev {
-  font-size:0.78rem; color:rgba(255,255,255,0.3);
-  display:flex; align-items:center; gap:0.5rem;
-}
-.footer-dev a { color:var(--gold-light); text-decoration:none; font-weight:600; }
-.footer-dev a:hover { color:var(--gold); }
-
-/* ===================== MOBILE NAV ===================== */
-.mobile-nav {
-  display:none;
-  position:fixed; inset:0;
-  background:var(--green-deep);
-  z-index:999;
-  flex-direction:column;
-  align-items:center; justify-content:center;
-  gap:2rem;
-  opacity:0; pointer-events:none;
-  transition:opacity 0.4s;
-}
-.mobile-nav.open { opacity:1; pointer-events:all; display:flex; }
-.mobile-nav a {
-  font-family:'Playfair Display',serif;
-  font-size:2rem; color:white; text-decoration:none;
-  font-style:italic; transition:color 0.3s;
-}
-.mobile-nav a:hover { color:var(--gold-light); }
-.mobile-nav-close {
-  position:absolute; top:2rem; right:2rem;
-  background:none; border:none; color:white; font-size:2rem;
-  cursor:pointer;
-}
-
-/* Scroll reveal */
-.reveal {
-  opacity:0; transform:translateY(40px);
-  transition:opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible { opacity:1; transform:translateY(0); }
-.reveal-delay-1 { transition-delay:0.1s; }
-.reveal-delay-2 { transition-delay:0.2s; }
-.reveal-delay-3 { transition-delay:0.3s; }
-.reveal-delay-4 { transition-delay:0.4s; }
-
-/* ===================== RESPONSIVE ===================== */
-@media (max-width:1024px) {
-  .dest-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
-  .dest-card:nth-child(1),
-  .dest-card:nth-child(2),
-  .dest-card:nth-child(3),
-  .dest-card:nth-child(4),
-  .dest-card:nth-child(5),
-  .dest-card:nth-child(6) { grid-column:auto; grid-row:auto; }
-  .gallery-grid { grid-template-columns:repeat(2,1fr); grid-template-rows:auto; }
-  .gal-item:nth-child(1),
-  .gal-item:nth-child(5) { grid-column:auto; grid-row:auto; }
-  .footer-grid { grid-template-columns:1fr 1fr; }
-}
-@media (max-width:900px) {
-  nav { padding:1.2rem 2rem; }
-  nav.solid { padding:0.8rem 2rem; }
-  .nav-links, .nav-wa-btn { display:none; }
-  .hamburger { display:flex; }
-  .about-wrap, .contact-grid, .why-inner { grid-template-columns:1fr; gap:3rem; }
-  .about-visual { height:350px; }
-  .about-img-a { width:78%; }
-  .about-img-b { width:60%; }
-  .exp-grid { grid-template-columns:1fr 1fr; }
-  .test-grid { grid-template-columns:1fr; }
-  .hero-stats-bar { display:none; }
-  .footer-grid { grid-template-columns:1fr; }
-  body { cursor:default; }
-  .cursor, .cursor-ring { display:none; }
-}
-@media (max-width:600px) {
-  nav { padding:1rem 1.5rem; }
-  .exp-grid { grid-template-columns:1fr; }
-  .dest-grid { grid-template-columns:1fr; }
-  .gallery-grid { grid-template-columns:1fr 1fr; }
-  .form-row { grid-template-columns:1fr; }
-  .features-grid { grid-template-columns:1fr; }
-  .why-img-stack { grid-template-columns:1fr; }
-  .why-img-wrap:first-child, .why-img-wrap:last-child { margin-top:0; }
-  .container { padding:0 1.2rem; }
-}
-</style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .exp-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 900px) {
+      section { padding: 70px 30px; }
+      nav { padding: 16px 30px; }
+      nav.scrolled { padding: 12px 30px; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 20px 30px; }
+      .about { grid-template-columns: 1fr; gap: 50px; }
+      .about-image-wrap { max-width: 500px; }
+      .about-img-float { width: 140px; height: 140px; bottom: -20px; right: -10px; }
+      .about-badge { left: -10px; }
+      .destinations-grid { grid-template-columns: 1fr 1fr; }
+      .dest-card:nth-child(1) { grid-column: span 2; }
+      .dest-card:nth-child(1) img { height: 360px; }
+      .acc-grid, .pkg-grid, .testi-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 50px; }
+      .footer-top { grid-template-columns: 1fr; gap: 30px; }
+      .nav-links { display: none; flex-direction: column; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26,60,46,0.98); align-items: center; justify-content: center; gap: 32px; z-index: 999; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.1rem; }
+      .hamburger { display: flex; z-index: 1001; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2.4rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .destinations-grid { grid-template-columns: 1fr; }
+      .dest-card:nth-child(1) { grid-column: auto; }
+      footer { padding: 50px 20px 20px; }
+      .contact-section { padding: 70px 20px; }
+      .contact-form { padding: 28px 20px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Custom Cursor -->
+<!-- CUSTOM CURSOR -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" id="mobileClose">✕</button>
-  <a href="#about">About Us</a>
-  <a href="#destinations">Destinations</a>
-  <a href="#experiences">Experiences</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact</a>
-  <a href="https://wa.me/256786625633" target="_blank" style="color:#25D366; font-style:normal; font-size:1.2rem;">📱 Book on WhatsApp</a>
-</div>
-
-<!-- ========== NAVBAR ========== -->
+<!-- NAV -->
 <nav id="navbar">
-  <a href="#" class="nav-brand">
-    <div class="nav-logo-emblem">🦍</div>
-    <div class="nav-brand-text">
-      <span class="nav-brand-name">Dembe Tours</span>
-      <small class="nav-brand-sub">& Travel Safaris Co.</small>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon"><i class="fas fa-binoculars"></i></div>
+    <div class="nav-logo-text">
+      <strong>Dembe Tours</strong>
+      <span>Uganda Safaris</span>
     </div>
   </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
+  <ul class="nav-links" id="navLinks">
     <li><a href="#destinations">Destinations</a></li>
     <li><a href="#experiences">Experiences</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#accommodation">Stay</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
   </ul>
-  <a href="https://wa.me/256786625633" target="_blank" class="nav-links nav-wa-btn" style="list-style:none">
-    💬 Book via WhatsApp
-  </a>
-  <div class="hamburger" id="hamburger">
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
-<!-- ========== HERO ========== -->
-<section id="hero">
-  <div class="hero-slides">
-    <div class="hero-slide active"></div>
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
-    <div class="hero-slide"></div>
-  </div>
-  <div class="hero-grain"></div>
-
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span></span>
-      Fort Portal Tourism City · Western Uganda
-      <span></span>
+    <div class="hero-badge">
+      <i class="fas fa-map-marker-alt"></i>
+      Fort Portal Tourism City, Western Uganda
     </div>
-    <h1 class="hero-title">DISCOVER</h1>
-    <span class="hero-title-italic">the Pearl of Africa</span>
-    <p class="hero-sub">Gorillas · Rwenzori Mountains · Crater Lakes · Wildlife</p>
-    <p class="hero-desc">
-      Dembe Tours & Travel Safaris brings you closer to Uganda's most breathtaking wilderness, 
-      ancient cultures, and extraordinary wildlife. Your adventure begins in the heart of Fort Portal.
+    <h1 class="hero-title">
+      Discover the <em>Untamed</em><br>Heart of Uganda
+    </h1>
+    <p class="hero-subtitle">
+      From the misty peaks of the Rwenzori Mountains to ancient rainforests where gorillas roam — your extraordinary African adventure begins here.
     </p>
     <div class="hero-btns">
-      <a href="#experiences" class="btn-gold">
-        🌿 Explore Safaris
+      <a href="#packages" class="btn-primary">
+        <i class="fas fa-compass"></i> Explore Safaris
       </a>
-      <a href="https://wa.me/256786625633" target="_blank" class="btn-ghost">
-        💬 Chat with Us
+      <a href="#contact" class="btn-outline">
+        <i class="fab fa-whatsapp"></i> WhatsApp Us
       </a>
     </div>
   </div>
-
-  <div class="hero-indicators" id="indicators">
-    <div class="indicator active" data-slide="0"></div>
-    <div class="indicator" data-slide="1"></div>
-    <div class="indicator" data-slide="2"></div>
-    <div class="indicator" data-slide="3"></div>
-  </div>
-
-  <div class="hero-scroll-hint">
-    <div class="scroll-line"></div>
-    Scroll to explore
-  </div>
-
-  <div class="hero-stats-bar">
-    <div class="stat-pill">
-      <div class="stat-icon">🦍</div>
-      <div class="stat-info">
-        <div class="stat-num">500+</div>
-        <div class="stat-lbl">Mountain Gorillas</div>
-      </div>
-    </div>
-    <div class="stat-pill">
-      <div class="stat-icon">🏔️</div>
-      <div class="stat-info">
-        <div class="stat-num">5,109m</div>
-        <div class="stat-lbl">Rwenzori Peak</div>
-      </div>
-    </div>
-    <div class="stat-pill">
-      <div class="stat-icon">🦜</div>
-      <div class="stat-info">
-        <div class="stat-num">1,000+</div>
-        <div class="stat-lbl">Bird Species</div>
-      </div>
-    </div>
-    <div class="stat-pill">
-      <div class="stat-icon">🌊</div>
-      <div class="stat-info">
-        <div class="stat-num">50+</div>
-        <div class="stat-lbl">Crater Lakes</div>
-      </div>
-    </div>
-    <div class="stat-pill">
-      <div class="stat-icon">⭐</div>
-      <div class="stat-info">
-        <div class="stat-num">5.0</div>
-        <div class="stat-lbl">Traveller Rating</div>
-      </div>
-    </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
   </div>
 </section>
 
-<!-- ========== MARQUEE ========== -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <div class="marquee-item">Gorilla Trekking</div>
-    <div class="marquee-item">Rwenzori Expeditions</div>
-    <div class="marquee-item">Chimpanzee Tracking</div>
-    <div class="marquee-item">Crater Lake Tours</div>
-    <div class="marquee-item">Bird Watching</div>
-    <div class="marquee-item">Wildlife Safaris</div>
-    <div class="marquee-item">Cultural Experiences</div>
-    <div class="marquee-item">Queen Elizabeth Park</div>
-    <div class="marquee-item">Fort Portal City</div>
-    <div class="marquee-item">Kibale Forest</div>
-    <div class="marquee-item">Eco Tourism</div>
-    <!-- Duplicate for seamless loop -->
-    <div class="marquee-item">Gorilla Trekking</div>
-    <div class="marquee-item">Rwenzori Expeditions</div>
-    <div class="marquee-item">Chimpanzee Tracking</div>
-    <div class="marquee-item">Crater Lake Tours</div>
-    <div class="marquee-item">Bird Watching</div>
-    <div class="marquee-item">Wildlife Safaris</div>
-    <div class="marquee-item">Cultural Experiences</div>
-    <div class="marquee-item">Queen Elizabeth Park</div>
-    <div class="marquee-item">Fort Portal City</div>
-    <div class="marquee-item">Kibale Forest</div>
-    <div class="marquee-item">Eco Tourism</div>
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat-item">
+    <strong>500+</strong>
+    <span>Happy Tourists</span>
+  </div>
+  <div class="stat-item">
+    <strong>20+</strong>
+    <span>Tour Packages</span>
+  </div>
+  <div class="stat-item">
+    <strong>15+</strong>
+    <span>Destinations</span>
+  </div>
+  <div class="stat-item">
+    <strong>24/7</strong>
+    <span>Support</span>
   </div>
 </div>
 
-<!-- ========== ABOUT ========== -->
-<section id="about">
-  <div class="container">
-    <div class="about-wrap">
-      <div class="about-visual reveal">
-        <img class="about-img-a"
-          src="https://images.unsplash.com/photo-1567177662154-dfeb4c93b6ae?w=800&q=80"
-          alt="Uganda mountain gorilla"
-          onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80'">
-        <img class="about-img-b"
-          src="https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=600&q=80"
-          alt="Fort Portal Uganda landscape"
-          onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80'">
-        <div class="about-badge">Est.<br>Fort Portal<br>2026</div>
-        <div class="about-leaf">🍃</div>
-      </div>
-      <div class="about-text reveal reveal-delay-2">
-        <div class="section-tag">About Dembe Tours</div>
-        <h2 class="about-title">Your Authentic Gateway to <em>Uganda's Wild Heart</em></h2>
-        <p>
-          Dembe Tours and Travel Safaris Co. Limited is a proud Fort Portal–based tour operator dedicated to curating 
-          unforgettable experiences across Uganda's most spectacular landscapes. Born from the magnificent Rwenzori region, 
-          we are deeply connected to the land and its people.
-        </p>
-        <p>
-          From the mist-covered jungles of Bwindi where mountain gorillas roam, to the serene crater lakes 
-          scattered across the Albertine Rift, to the snow-capped peaks of the Rwenzori "Mountains of the Moon" — 
-          we are your trusted local guides for every adventure.
-        </p>
-        <div class="features-grid">
-          <div class="feat-card">
-            <div class="feat-icon">🦍</div>
-            <div class="feat-info">
-              <strong>Gorilla Trekking</strong>
-              <span>Bwindi & Mgahinga permits handled with care</span>
-            </div>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">🏔️</div>
-            <div class="feat-info">
-              <strong>Rwenzori Climbs</strong>
-              <span>Guided expeditions to Africa's 3rd highest peak</span>
-            </div>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">🌿</div>
-            <div class="feat-info">
-              <strong>Eco Tourism</strong>
-              <span>Community-led, sustainable travel experiences</span>
-            </div>
-          </div>
-          <div class="feat-card">
-            <div class="feat-icon">🎭</div>
-            <div class="feat-info">
-              <strong>Cultural Tours</strong>
-              <span>Authentic Batooro heritage & traditions</span>
-            </div>
-          </div>
-        </div>
-        <a href="https://wa.me/256786625633" target="_blank" class="whatsapp-link">
-          💬 Chat with Our Team
-        </a>
-      </div>
+<!-- WILDLIFE MARQUEE -->
+<div class="wildlife-marquee">
+  <div class="marquee-track">
+    <div class="marquee-item"><i class="fas fa-paw"></i> Mountain Gorillas</div>
+    <div class="marquee-item"><i class="fas fa-kiwi-bird"></i> 1000+ Bird Species</div>
+    <div class="marquee-item"><i class="fas fa-mountain"></i> Rwenzori Mountains</div>
+    <div class="marquee-item"><i class="fas fa-water"></i> Crater Lakes</div>
+    <div class="marquee-item"><i class="fas fa-tree"></i> Kibale Chimpanzees</div>
+    <div class="marquee-item"><i class="fas fa-leaf"></i> Queen Elizabeth NP</div>
+    <div class="marquee-item"><i class="fas fa-hippo"></i> African Wildlife</div>
+    <div class="marquee-item"><i class="fas fa-star"></i> Cultural Heritage</div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item"><i class="fas fa-paw"></i> Mountain Gorillas</div>
+    <div class="marquee-item"><i class="fas fa-kiwi-bird"></i> 1000+ Bird Species</div>
+    <div class="marquee-item"><i class="fas fa-mountain"></i> Rwenzori Mountains</div>
+    <div class="marquee-item"><i class="fas fa-water"></i> Crater Lakes</div>
+    <div class="marquee-item"><i class="fas fa-tree"></i> Kibale Chimpanzees</div>
+    <div class="marquee-item"><i class="fas fa-leaf"></i> Queen Elizabeth NP</div>
+    <div class="marquee-item"><i class="fas fa-hippo"></i> African Wildlife</div>
+    <div class="marquee-item"><i class="fas fa-star"></i> Cultural Heritage</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+  <div class="about-image-wrap">
+    <img src="about-fortportal.jpg" alt="Fort Portal Uganda" class="about-img-main" />
+    <img src="about-gorilla.jpg" alt="Mountain Gorilla" class="about-img-float" />
+    <div class="about-badge">
+      <strong>#1</strong>
+      <span>Rated Tour<br>Operator</span>
     </div>
   </div>
-</section>
-
-<!-- ========== DESTINATIONS ========== -->
-<section id="destinations">
-  <div class="container">
-    <div class="dest-header">
-      <div>
-        <div class="section-tag">Top Destinations</div>
-        <h2 class="dest-title reveal">Iconic Places<br><em>Waiting For You</em></h2>
-      </div>
-      <p class="dest-subtitle reveal reveal-delay-2">
-        Western Uganda is home to some of Africa's most extraordinary destinations. 
-        Let us take you there.
-      </p>
-    </div>
-    <div class="dest-grid">
-      <div class="dest-card reveal">
-        <img class="dest-img"
-          src="https://images.unsplash.com/photo-1567177662154-dfeb4c93b6ae?w=900&q=80"
-          alt="Bwindi Impenetrable Forest"
-          onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=900&q=80'">
-        <div class="dest-overlay"></div>
-        <div class="dest-arrow">↗</div>
-        <div class="dest-info">
-          <span class="dest-tag">UNESCO World Heritage</span>
-          <span class="dest-name">Bwindi Impenetrable Forest</span>
-          <p class="dest-desc">Home to half the world's mountain gorilla population. Trek through ancient jungle to meet our closest relatives.</p>
-        </div>
-      </div>
-      <div class="dest-card reveal reveal-delay-1">
-        <img class="dest-img"
-          src="https://images.unsplash.com/photo-1612893786649-67abf4d5f32d?w=600&q=80"
-          alt="Rwenzori Mountains"
-          onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80'">
-        <div class="dest-overlay"></div>
-        <div class="dest-arrow">↗</div>
-        <div class="dest-info">
-          <span class="dest-tag">Mountains of the Moon</span>
-          <span class="dest-name">Rwenzori Mountains</span>
-          <p class="dest-desc">Snow-capped peaks, glacial valleys, and unique alpine flora on Africa's third highest massif.</p>
-        </div>
-      </div>
-      <div class="dest-card reveal reveal-delay-2">
-        <img class="dest-img"
-          src="https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=600&q=80"
-          alt="Queen Elizabeth National Park"
-          onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'">
-        <div class="dest-overlay"></div>
-        <div class="dest-arrow">↗</div>
-        <div class="dest-info">
-          <span class="dest-tag">National Park</span>
-          <span class="dest-name">Queen Elizabeth Park</span>
-          <p class="dest-desc">Tree-climbing lions, hippos, and the famous Kazinga Channel boat cruise in one park.</p>
-        </div>
-      </div>
-      <div class="dest-card reveal">
-        <img class="dest-img"
-          src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=700&q=80"
-          alt="Kibale Forest"
-          onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=700&q=80'">
-        <div class="dest-overlay"></div>
-        <div class="dest-arrow">↗</div>
-        <div class="dest-info">
-          <span class="dest-tag">Primate Capital</span>
-          <span class="dest-name">Kibale Forest</span>
-          <p class="dest-desc">The world's best destination for chimpanzee trekking, just 25 km from Fort Portal.</p>
-        </div>
-      </div>
-      <div class="dest-card reveal reveal-delay-1">
-        <img class="dest-img"
-          src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=700&q=80"
-          alt="Crater Lakes Fort Portal"
-          onerror="this.src='https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=700&q=80'">
-        <div class="dest-overlay"></div>
-        <div class="dest-arrow">↗</div>
-        <div class="dest-info">
-          <span class="dest-tag">Fort Portal Region</span>
-          <span class="dest-name">Crater Lakes Circuit</span>
-          <p class="dest-desc">Over 50 stunning crater lakes scattered around Fort Portal — a landscape unlike anywhere on Earth.</p>
-        </div>
-      </div>
-      <div class="dest-card reveal reveal-delay-2">
-        <img class="dest-img"
-          src="https://images.unsplash.com/photo-1576941342936-26f7e6f6c0aa?w=600&q=80"
-          alt="Semuliki National Park"
-          onerror="this.src='https://images.unsplash.com/photo-1612893786649-67abf4d5f32d?w=600&q=80'">
-        <div class="dest-overlay"></div>
-        <div class="dest-arrow">↗</div>
-        <div class="dest-info">
-          <span class="dest-tag">Rare Wildlife</span>
-          <span class="dest-name">Semuliki National Park</span>
-          <p class="dest-desc">Hot springs, forest elephants, and rare Central African bird species deep in the Rift Valley.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== EXPERIENCES ========== -->
-<section id="experiences">
-  <div class="container">
-    <div class="exp-header reveal">
-      <div class="section-tag" style="justify-content:center;">What We Offer</div>
-      <h2 class="exp-title">Extraordinary <em>Safari Experiences</em></h2>
-      <p class="exp-lead">
-        Every journey is carefully crafted. Whether you're a first-time visitor or a seasoned explorer, 
-        Dembe Tours designs an experience that stirs the soul.
-      </p>
-    </div>
-    <div class="exp-grid">
-      <div class="exp-card reveal">
-        <div class="exp-img-wrap">
-          <img src="https://images.unsplash.com/photo-1567177662154-dfeb4c93b6ae?w=600&q=80" alt="Gorilla Trekking"
-            onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'">
-          <div class="exp-icon-badge">🦍</div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-cat">Primate Adventures</div>
-          <div class="exp-name">Gorilla Trekking Safari</div>
-          <p class="exp-text">Trek through Bwindi's ancient rainforest to spend a golden hour with mountain gorilla families. A once-in-a-lifetime bucket-list experience.</p>
-          <div class="exp-meta">
-            <div class="exp-meta-item"><span>📅</span> Full Day</div>
-            <div class="exp-meta-item"><span>👥</span> Small Groups</div>
-            <div class="exp-meta-item"><span>📍</span> Bwindi</div>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal reveal-delay-1">
-        <div class="exp-img-wrap">
-          <img src="https://images.unsplash.com/photo-1612893786649-67abf4d5f32d?w=600&q=80" alt="Rwenzori Expedition"
-            onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80'">
-          <div class="exp-icon-badge">🏔️</div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-cat">Mountain Expeditions</div>
-          <div class="exp-name">Rwenzori Climbing Tour</div>
-          <p class="exp-text">Ascend the legendary Mountains of the Moon through unique Afro-alpine vegetation to glaciers and spectacular views of the Rift Valley.</p>
-          <div class="exp-meta">
-            <div class="exp-meta-item"><span>📅</span> 7–12 Days</div>
-            <div class="exp-meta-item"><span>🏕️</span> Camping</div>
-            <div class="exp-meta-item"><span>📍</span> Rwenzori</div>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal reveal-delay-2">
-        <div class="exp-img-wrap">
-          <img src="https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=600&q=80" alt="Wildlife Safari"
-            onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80'">
-          <div class="exp-icon-badge">🦁</div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-cat">Game Drives</div>
-          <div class="exp-name">Wildlife Game Safari</div>
-          <p class="exp-text">Track the famous tree-climbing lions, herds of buffalo, and pods of hippos across Queen Elizabeth National Park's diverse savannah.</p>
-          <div class="exp-meta">
-            <div class="exp-meta-item"><span>📅</span> 2–5 Days</div>
-            <div class="exp-meta-item"><span>🚙</span> 4x4 Jeep</div>
-            <div class="exp-meta-item"><span>📍</span> QENP</div>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal">
-        <div class="exp-img-wrap">
-          <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80" alt="Chimpanzee Trekking"
-            onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80'">
-          <div class="exp-icon-badge">🐒</div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-cat">Primate Adventures</div>
-          <div class="exp-name">Chimpanzee Trekking</div>
-          <p class="exp-text">Follow expert guides through Kibale Forest — home to over 1,500 chimpanzees — for an intimate encounter with our closest primate relatives.</p>
-          <div class="exp-meta">
-            <div class="exp-meta-item"><span>📅</span> Half/Full Day</div>
-            <div class="exp-meta-item"><span>🌳</span> Forest</div>
-            <div class="exp-meta-item"><span>📍</span> Kibale</div>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal reveal-delay-1">
-        <div class="exp-img-wrap">
-          <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80" alt="Crater Lake Tours"
-            onerror="this.src='https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=600&q=80'">
-          <div class="exp-icon-badge">🌊</div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-cat">Scenic Tours</div>
-          <div class="exp-name">Crater Lakes & Hiking</div>
-          <p class="exp-text">Explore the breathtaking Crater Lakes around Fort Portal. Swim, hike, canoe, or simply marvel at the deep emerald waters from the rim.</p>
-          <div class="exp-meta">
-            <div class="exp-meta-item"><span>📅</span> 1–3 Days</div>
-            <div class="exp-meta-item"><span>🚶</span> Hiking</div>
-            <div class="exp-meta-item"><span>📍</span> Fort Portal</div>
-          </div>
-        </div>
-      </div>
-      <div class="exp-card reveal reveal-delay-2">
-        <div class="exp-img-wrap">
-          <img src="https://images.unsplash.com/photo-1576941342936-26f7e6f6c0aa?w=600&q=80" alt="Bird Watching"
-            onerror="this.src='https://images.unsplash.com/photo-1612893786649-67abf4d5f32d?w=600&q=80'">
-          <div class="exp-icon-badge">🦜</div>
-        </div>
-        <div class="exp-body">
-          <div class="exp-cat">Ornithological Tours</div>
-          <div class="exp-name">Bird Watching Safari</div>
-          <p class="exp-text">Uganda hosts over 1,000 bird species. Join our expert ornithological guides in Kibale, Semuliki, and the Albertine Rift Endemic Zone.</p>
-          <div class="exp-meta">
-            <div class="exp-meta-item"><span>📅</span> Flexible</div>
-            <div class="exp-meta-item"><span>🔭</span> Expert Guides</div>
-            <div class="exp-meta-item"><span>📍</span> Multiple</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CTA BANNER ========== -->
-<section id="cta-banner">
-  <div class="cta-inner">
-    <div class="cta-tag reveal">Begin Your Story</div>
-    <h2 class="cta-heading reveal reveal-delay-1">
-      Uganda Awaits.<br><em>Will You Answer?</em>
-    </h2>
-    <p class="cta-body reveal reveal-delay-2">
-      From the mountains of the moon to the gorillas of Bwindi, from the crater lakes of Fort Portal 
-      to the savannah of Queen Elizabeth — one country, infinite wonders. Let Dembe Tours craft your dream safari.
+  <div class="about-text">
+    <div class="section-tag">About Dembe Tours</div>
+    <h2 class="section-title">Your Gateway to<br><em style="font-style:italic; color:var(--amber)">Western Uganda's</em> Wonders</h2>
+    <p class="section-desc">
+      Based in the beautiful Fort Portal Tourism City — the pearl of the Rwenzori region — Dembe Tours and Travel Safaris specializes in crafting unforgettable safari experiences. We connect adventurers from around the world with Uganda's most breathtaking landscapes, wildlife, and cultures.
     </p>
-    <div class="cta-buttons reveal reveal-delay-3">
-      <a href="https://wa.me/256786625633" target="_blank" class="btn-gold">
-        💬 Book Your Safari Now
-      </a>
-      <a href="#contact" class="btn-ghost">
-        📋 Get Custom Quote
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ========== GALLERY ========== -->
-<section id="gallery">
-  <div class="container">
-    <div class="section-tag" style="color:var(--gold-light); justify-content:center; margin-bottom:0.5rem;">
-      <span style="width:30px;height:1px;background:var(--gold-light);display:inline-block;"></span>
-      Visual Journey
-      <span style="width:30px;height:1px;background:var(--gold-light);display:inline-block;"></span>
-    </div>
-    <h2 class="gallery-title reveal">Uganda Through <em>Our Lens</em></h2>
-    <p class="gallery-sub reveal">A glimpse of the beauty that awaits you</p>
-    <div class="gallery-grid">
-      <div class="gal-item reveal">
-        <img src="https://images.unsplash.com/photo-1567177662154-dfeb4c93b6ae?w=800&q=80" alt="Gorillas"
-          onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80'">
-        <div class="gal-caption">Mountain Gorillas, Bwindi</div>
-      </div>
-      <div class="gal-item reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1612893786649-67abf4d5f32d?w=600&q=80" alt="Rwenzori"
-          onerror="this.src='https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80'">
-        <div class="gal-caption">Rwenzori Mountains</div>
-      </div>
-      <div class="gal-item reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=600&q=80" alt="Crater Lakes"
-          onerror="this.src='https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=600&q=80'">
-        <div class="gal-caption">Fort Portal Crater Lakes</div>
-      </div>
-      <div class="gal-item reveal reveal-delay-3">
-        <img src="https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=600&q=80" alt="Wildlife"
-          onerror="this.src='https://images.unsplash.com/photo-1576941342936-26f7e6f6c0aa?w=600&q=80'">
-        <div class="gal-caption">Wildlife, Queen Elizabeth NP</div>
-      </div>
-      <div class="gal-item reveal">
-        <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80" alt="Chimpanzees"
-          onerror="this.src='https://images.unsplash.com/photo-1567177662154-dfeb4c93b6ae?w=800&q=80'">
-        <div class="gal-caption">Chimpanzees, Kibale Forest</div>
-      </div>
-      <div class="gal-item reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1576941342936-26f7e6f6c0aa?w=600&q=80" alt="Bird Watching"
-          onerror="this.src='https://images.unsplash.com/photo-1612893786649-67abf4d5f32d?w=600&q=80'">
-        <div class="gal-caption">Semuliki Forest</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== TESTIMONIALS ========== -->
-<section id="testimonials">
-  <div class="container">
-    <div class="test-header reveal">
-      <div class="section-tag" style="justify-content:center;">Traveller Stories</div>
-      <h2 class="test-title">What Our Guests <em>Say About Us</em></h2>
-    </div>
-    <div class="test-grid">
-      <div class="test-card reveal">
-        <div class="test-quote-mark">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">Sitting face-to-face with a mountain gorilla family in Bwindi was the most profound experience of my life. Dembe's team was professional, knowledgeable, and genuinely passionate about conservation. Absolutely outstanding!</p>
-        <div class="test-author">
-          <img class="test-avatar"
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
-            alt="Sarah M."
-            onerror="this.style.background='var(--green-rich)'">
-          <div>
-            <span class="test-name">Sarah Mitchell</span>
-            <span class="test-country">🇬🇧 United Kingdom</span>
-          </div>
+    <div class="about-features">
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <div>
+          <h4>Fully Licensed</h4>
+          <p>Registered & certified tour operator under Uganda's Companies Act 2012</p>
         </div>
       </div>
-      <div class="test-card reveal reveal-delay-1">
-        <div class="test-quote-mark">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">The Rwenzori Mountains expedition was physically challenging but absolutely worth it. The guides from Dembe knew every trail, every plant, every bird. The crater lakes around Fort Portal were a magical bonus!</p>
-        <div class="test-author">
-          <img class="test-avatar"
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80"
-            alt="Marcus K."
-            onerror="this.style.background='var(--green-rich)'">
-          <div>
-            <span class="test-name">Marcus Klein</span>
-            <span class="test-country">🇩🇪 Germany</span>
-          </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-route"></i></div>
+        <div>
+          <h4>Custom Itineraries</h4>
+          <p>Tailor-made tours designed around your interests and timeline</p>
         </div>
       </div>
-      <div class="test-card reveal reveal-delay-2">
-        <div class="test-quote-mark">"</div>
-        <div class="test-stars">★★★★★</div>
-        <p class="test-text">Uganda is the most underrated country in Africa, and Dembe Tours showed us why it's called the Pearl of Africa. The chimpanzee trekking in Kibale was incredible. We saw over 80 chimps in one morning!</p>
-        <div class="test-author">
-          <img class="test-avatar"
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80"
-            alt="Amara J."
-            onerror="this.style.background='var(--green-rich)'">
-          <div>
-            <span class="test-name">Amara Johnson</span>
-            <span class="test-country">🇺🇸 United States</span>
-          </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-users"></i></div>
+        <div>
+          <h4>Expert Local Guides</h4>
+          <p>Knowledgeable guides fluent in English, Rutooro & Swahili</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon"><i class="fas fa-leaf"></i></div>
+        <div>
+          <h4>Eco-Conscious</h4>
+          <p>Community-based eco-tourism supporting conservation</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== WHY US ========== -->
-<section id="why">
-  <div class="container">
-    <div class="why-inner">
-      <div class="why-content reveal">
-        <div class="section-tag">Why Dembe Tours</div>
-        <h2 class="why-title">Local Expertise,<br><em>Global Standards</em></h2>
-        <p class="why-body">
-          We are Fort Portal's own — rooted in the Rwenzori region, we speak the land's language. 
-          Our team of certified guides, naturalists, and hospitality experts ensure every detail of 
-          your Uganda adventure exceeds expectations.
-        </p>
-        <ul class="why-list">
-          <li class="why-item">
-            <div class="why-check">✓</div>
-            <span><strong>Certified Local Guides</strong> — Expert naturalists born and raised in the Rwenzori region with deep knowledge of wildlife, culture, and terrain.</span>
-          </li>
-          <li class="why-item">
-            <div class="why-check">✓</div>
-            <span><strong>Fully Licensed & Registered</strong> — Dembe Tours & Travel Safaris Co. Ltd, legally incorporated and operating under Ugandan tourism regulations.</span>
-          </li>
-          <li class="why-item">
-            <div class="why-check">✓</div>
-            <span><strong>Community & Conservation Focus</strong> — Every safari dollar supports local communities and wildlife conservation in the Albertine Rift.</span>
-          </li>
-          <li class="why-item">
-            <div class="why-check">✓</div>
-            <span><strong>Bespoke Safari Design</strong> — No cookie-cutter tours. Every itinerary is crafted to match your interests, budget, and schedule.</span>
-          </li>
-          <li class="why-item">
-            <div class="why-check">✓</div>
-            <span><strong>24/7 WhatsApp Support</strong> — Reach us directly anytime before, during, and after your journey — we're always just a message away.</span>
-          </li>
-        </ul>
+<!-- DESTINATIONS -->
+<section class="destinations reveal" id="destinations">
+  <div class="destinations-header">
+    <div>
+      <div class="section-tag">Iconic Places</div>
+      <h2 class="section-title">Explore Our<br>Top Destinations</h2>
+    </div>
+    <p style="max-width:320px; font-size:0.82rem; color:rgba(245,239,230,0.6); line-height:1.8;">
+      From snow-capped Rwenzori peaks to lush crater lakes — each destination tells a unique story of Uganda's extraordinary natural heritage.
+    </p>
+  </div>
+  <div class="destinations-grid">
+    <div class="dest-card">
+      <img src="dest-rwenzori.jpg" alt="Rwenzori Mountains" />
+      <div class="dest-overlay">
+        <span class="dest-tag">Trekking</span>
+        <div class="dest-name">Rwenzori Mountains</div>
+        <p class="dest-desc">The legendary "Mountains of the Moon" — Africa's third-highest peaks draped in glaciers, Afro-alpine meadows and ancient forests. Trek through an otherworldly landscape unlike anywhere on Earth.</p>
+        <a href="#contact" class="dest-link">Book Trek <i class="fas fa-arrow-right"></i></a>
       </div>
-      <div class="why-visual reveal reveal-delay-2">
-        <div class="why-img-stack">
-          <div class="why-img-wrap">
-            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=500&q=80" alt="Uganda nature"
-              onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=500&q=80'">
-          </div>
-          <div class="why-img-wrap">
-            <img src="https://images.unsplash.com/photo-1612893786649-67abf4d5f32d?w=500&q=80" alt="Rwenzori"
-              onerror="this.src='https://images.unsplash.com/photo-1504432842672-1a79f78e4084?w=500&q=80'">
-          </div>
+    </div>
+    <div class="dest-card">
+      <img src="dest-kibale.jpg" alt="Kibale Forest" />
+      <div class="dest-overlay">
+        <span class="dest-tag">Primates</span>
+        <div class="dest-name">Kibale Forest</div>
+        <a href="#contact" class="dest-link">Explore <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="dest-card">
+      <img src="dest-queeneliz.jpg" alt="Queen Elizabeth NP" />
+      <div class="dest-overlay">
+        <span class="dest-tag">Wildlife</span>
+        <div class="dest-name">Queen Elizabeth NP</div>
+        <a href="#contact" class="dest-link">Explore <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="dest-card">
+      <img src="dest-craterLakes.jpg" alt="Fort Portal Crater Lakes" />
+      <div class="dest-overlay">
+        <span class="dest-tag">Scenic</span>
+        <div class="dest-name">Crater Lakes</div>
+        <a href="#contact" class="dest-link">Explore <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="dest-card">
+      <img src="dest-bwindi.jpg" alt="Bwindi Impenetrable Forest" />
+      <div class="dest-overlay">
+        <span class="dest-tag">Gorillas</span>
+        <div class="dest-name">Bwindi Forest</div>
+        <a href="#contact" class="dest-link">Explore <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section class="experiences reveal" id="experiences">
+  <div style="text-align:center; margin-bottom:0;">
+    <div class="section-tag" style="justify-content:center;">What We Offer</div>
+    <h2 class="section-title" style="text-align:center;">Extraordinary<br>Safari Experiences</h2>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <img src="exp-gorilla.jpg" alt="Gorilla Trekking" class="exp-img" />
+      <div class="exp-body">
+        <div class="exp-icon"><i class="fas fa-paw"></i></div>
+        <div class="exp-name">Gorilla Trekking</div>
+        <p class="exp-desc">Trek through misty forests to encounter endangered mountain gorillas in their natural habitat. An awe-inspiring once-in-a-lifetime experience.</p>
+        <a href="#contact" class="exp-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img src="exp-chimp.jpg" alt="Chimpanzee Tracking" class="exp-img" />
+      <div class="exp-body">
+        <div class="exp-icon"><i class="fas fa-tree"></i></div>
+        <div class="exp-name">Chimp Tracking</div>
+        <p class="exp-desc">Track our closest living relatives through Kibale Forest — home to the world's highest concentration of chimpanzees.</p>
+        <a href="#contact" class="exp-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img src="exp-birding.jpg" alt="Bird Watching" class="exp-img" />
+      <div class="exp-body">
+        <div class="exp-icon"><i class="fas fa-feather-alt"></i></div>
+        <div class="exp-name">Bird Watching</div>
+        <p class="exp-desc">Uganda is a birder's paradise with 1,066+ species. Spot the Shoebill, African Green Broadbill and hundreds of rare species.</p>
+        <a href="#contact" class="exp-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="exp-card">
+      <img src="exp-cultural.jpg" alt="Cultural Tours" class="exp-img" />
+      <div class="exp-body">
+        <div class="exp-icon"><i class="fas fa-drum"></i></div>
+        <div class="exp-name">Cultural Tours</div>
+        <p class="exp-desc">Immerse yourself in the vibrant Batooro, Bakiga, and Banyankole cultures through village visits, traditional dances and local cuisine.</p>
+        <a href="#contact" class="exp-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOMMODATION -->
+<section class="accommodation reveal" id="accommodation">
+  <div style="text-align:center;">
+    <div class="section-tag" style="justify-content:center;">Where You'll Stay</div>
+    <h2 class="section-title" style="text-align:center;">Comfortable &<br>Safe Accommodation</h2>
+    <p class="section-desc" style="margin:0 auto; text-align:center; max-width:580px;">
+      Rest easy knowing every property we recommend is handpicked for comfort, safety and location — so you can focus on the adventure.
+    </p>
+  </div>
+  <div class="acc-grid">
+    <div class="acc-card">
+      <img src="acc-rwenzoriview.jpg" alt="Rwenzori View Lodge" class="acc-img" />
+      <div class="acc-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <div class="acc-body">
+        <div class="acc-name">Rwenzori View Lodge</div>
+        <div class="acc-loc"><i class="fas fa-map-marker-alt"></i> Fort Portal City</div>
+        <p class="acc-desc">Luxury lodge with stunning panoramic views of the Rwenzori Mountains. Wake up to mist-covered peaks and lush tea plantations.</p>
+        <div class="acc-amenities">
+          <div class="acc-amenity"><i class="fas fa-wifi"></i> Free WiFi</div>
+          <div class="acc-amenity"><i class="fas fa-utensils"></i> Restaurant</div>
+          <div class="acc-amenity"><i class="fas fa-car"></i> Transfers</div>
+          <div class="acc-amenity"><i class="fas fa-swimming-pool"></i> Pool</div>
         </div>
-        <div class="why-rating-chip" style="margin-top:2rem;">
-          <div class="stars">★★★★★</div>
-          <div class="rating-text">5.0 — Trusted by Travellers Worldwide</div>
+        <button class="acc-cta">Check Availability</button>
+      </div>
+    </div>
+    <div class="acc-card">
+      <img src="acc-kidepo.jpg" alt="Kibale Forest Camp" class="acc-img" />
+      <div class="acc-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+      </div>
+      <div class="acc-body">
+        <div class="acc-name">Kibale Forest Camp</div>
+        <div class="acc-loc"><i class="fas fa-map-marker-alt"></i> Kamwenge, Kibale</div>
+        <p class="acc-desc">Eco-camp nestled at the edge of Kibale Forest. Fall asleep to the calls of chimpanzees and wake up in the wild heart of Uganda.</p>
+        <div class="acc-amenities">
+          <div class="acc-amenity"><i class="fas fa-fire"></i> Campfire</div>
+          <div class="acc-amenity"><i class="fas fa-leaf"></i> Eco-Friendly</div>
+          <div class="acc-amenity"><i class="fas fa-utensils"></i> Full Board</div>
+          <div class="acc-amenity"><i class="fas fa-binoculars"></i> Guided Walks</div>
+        </div>
+        <button class="acc-cta">Check Availability</button>
+      </div>
+    </div>
+    <div class="acc-card">
+      <img src="acc-craterLake.jpg" alt="Crater Lake Retreat" class="acc-img" />
+      <div class="acc-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+      </div>
+      <div class="acc-body">
+        <div class="acc-name">Crater Lake Retreat</div>
+        <div class="acc-loc"><i class="fas fa-map-marker-alt"></i> Fort Portal Crater Region</div>
+        <p class="acc-desc">Boutique retreat perched above a stunning crater lake. Enjoy kayaking, nature walks and breathtaking sunsets over the Rwenzori range.</p>
+        <div class="acc-amenities">
+          <div class="acc-amenity"><i class="fas fa-ship"></i> Kayaking</div>
+          <div class="acc-amenity"><i class="fas fa-spa"></i> Spa</div>
+          <div class="acc-amenity"><i class="fas fa-wine-glass"></i> Bar</div>
+          <div class="acc-amenity"><i class="fas fa-binoculars"></i> Nature Walks</div>
+        </div>
+        <button class="acc-cta">Check Availability</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR PACKAGES -->
+<section class="packages reveal" id="packages">
+  <div style="text-align:center;">
+    <div class="section-tag" style="justify-content:center;">Tour Packages</div>
+    <h2 class="section-title" style="text-align:center;">Choose Your<br>Perfect Safari</h2>
+    <p class="section-desc" style="margin:0 auto; text-align:center; max-width:560px;">
+      From short weekend escapes to extended expeditions — we have a package crafted for every type of adventurer.
+    </p>
+  </div>
+  <div class="pkg-grid">
+    <div class="pkg-card">
+      <img src="pkg-weekend.jpg" alt="Weekend Escape" class="pkg-img" />
+      <div class="pkg-body">
+        <div class="pkg-duration"><i class="fas fa-calendar"></i> 3 Days / 2 Nights</div>
+        <div class="pkg-name">Fort Portal Weekend Escape</div>
+        <p class="pkg-desc">Discover the crater lakes, Amabere Caves and Tooro Kingdom Palace in this perfect weekend getaway from Kampala.</p>
+        <div class="pkg-highlights">
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Crater Lake Tour</div>
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Amabere Caves Visit</div>
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Hotel Accommodation</div>
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Airport Transfers</div>
+        </div>
+        <div class="pkg-footer">
+          <div class="pkg-price">
+            <strong>$350</strong>
+            <span>Per Person</span>
+          </div>
+          <button class="pkg-btn" onclick="openWhatsApp('Weekend Escape Package - 3 Days')">Book Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="pkg-card featured">
+      <div class="pkg-badge">Best Seller</div>
+      <img src="pkg-gorilla.jpg" alt="Gorilla Safari" class="pkg-img" />
+      <div class="pkg-body">
+        <div class="pkg-duration"><i class="fas fa-calendar"></i> 7 Days / 6 Nights</div>
+        <div class="pkg-name">Ultimate Primate Safari</div>
+        <p class="pkg-desc">Track gorillas in Bwindi, chimpanzees in Kibale and explore the stunning landscapes of Western Uganda.</p>
+        <div class="pkg-highlights">
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Gorilla Trekking Permit</div>
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Chimp Tracking</div>
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Queen Elizabeth Game Drive</div>
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> All Meals & Lodges</div>
+        </div>
+        <div class="pkg-footer">
+          <div class="pkg-price">
+            <strong>$2,200</strong>
+            <span>Per Person</span>
+          </div>
+          <button class="pkg-btn" onclick="openWhatsApp('Ultimate Primate Safari - 7 Days')">Book Now</button>
+        </div>
+      </div>
+    </div>
+    <div class="pkg-card">
+      <img src="pkg-rwenzori.jpg" alt="Rwenzori Trek" class="pkg-img" />
+      <div class="pkg-body">
+        <div class="pkg-duration"><i class="fas fa-calendar"></i> 10 Days / 9 Nights</div>
+        <div class="pkg-name">Rwenzori Mountain Trek</div>
+        <p class="pkg-desc">Summit Africa's legendary "Mountains of the Moon" through glaciers, giant heathers and Afro-alpine moorlands.</p>
+        <div class="pkg-highlights">
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Professional Mountain Guide</div>
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> All Equipment Included</div>
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Mountain Hut Stays</div>
+          <div class="pkg-highlight"><i class="fas fa-check-circle"></i> Park Entry Fees</div>
+        </div>
+        <div class="pkg-footer">
+          <div class="pkg-price">
+            <strong>$1,800</strong>
+            <span>Per Person</span>
+          </div>
+          <button class="pkg-btn" onclick="openWhatsApp('Rwenzori Mountain Trek - 10 Days')">Book Now</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== CONTACT ========== -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <div class="section-tag">Get in Touch</div>
-        <h2 class="contact-title">Let's Plan Your <em>Dream Safari</em></h2>
-        <p class="contact-body">
-          Ready to experience the real Africa? Our team at Dembe Tours is ready to craft your perfect 
-          Uganda adventure. Reach us on WhatsApp for the fastest response — we typically reply within minutes.
-        </p>
-        <div class="contact-details">
-          <div class="contact-row">
-            <div class="contact-row-icon">📍</div>
-            <div class="contact-row-text">
-              <strong>Location</strong>
-              Faith Homes Apartments, Boma Road<br>Fort Portal Tourism City, Kabarole District, Uganda
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-row-icon">📱</div>
-            <div class="contact-row-text">
-              <strong>WhatsApp / Call</strong>
-              <a href="https://wa.me/256786625633">+256 786 625 633</a>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-row-icon">🌍</div>
-            <div class="contact-row-text">
-              <strong>Region of Operation</strong>
-              Fort Portal · Rwenzori · Western Uganda · All Uganda
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-row-icon">🏢</div>
-            <div class="contact-row-text">
-              <strong>Company</strong>
-              Dembe Tours & Travel Safaris Co. Limited<br>
-              <small style="color:#8a9e8f; font-size:0.78rem;">Legal advocates: Twesige Fred & Co., Fort Portal</small>
-            </div>
+<!-- TESTIMONIALS -->
+<section class="testimonials reveal">
+  <div style="text-align:center;">
+    <div class="section-tag" style="justify-content:center;">Guest Stories</div>
+    <h2 class="section-title" style="text-align:center;">What Our Travellers<br>Are Saying</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">Dembe Tours made our gorilla trekking experience absolutely magical. Every detail was taken care of — from permits to lodging. We will never forget our time in Uganda's forests.</p>
+      <div class="testi-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <div class="testi-author">
+        <img src="testi-sarah.jpg" alt="Sarah Mitchell" class="testi-avatar" />
+        <div>
+          <div class="testi-name">Sarah Mitchell</div>
+          <div class="testi-origin">🇬🇧 United Kingdom</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The Rwenzori trek was the most challenging and rewarding experience of my life. Our guide Emmanuel was exceptional — knowledgeable, patient, and incredibly passionate about this land.</p>
+      <div class="testi-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <div class="testi-author">
+        <img src="testi-marco.jpg" alt="Marco Bianchi" class="testi-avatar" />
+        <div>
+          <div class="testi-name">Marco Bianchi</div>
+          <div class="testi-origin">🇮🇹 Italy</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The crater lakes around Fort Portal are breathtaking. Dembe Tours organized a perfect itinerary that showed us the real beauty of western Uganda — far beyond what any guidebook could describe.</p>
+      <div class="testi-stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+      </div>
+      <div class="testi-author">
+        <img src="testi-amara.jpg" alt="Amara Osei" class="testi-avatar" />
+        <div>
+          <div class="testi-name">Amara Osei</div>
+          <div class="testi-origin">🇺🇸 United States</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / BOOKING -->
+<section class="contact-section reveal" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="section-tag">Get In Touch</div>
+      <h2>Ready to Start<br>Your <em style="font-style:italic; color:var(--amber)">Adventure?</em></h2>
+      <p>Send us your travel dates and preferences — our expert team will craft a personalized itinerary just for you. We respond within 24 hours.</p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-item-text">
+            <strong>Our Office</strong>
+            <span>Faith Homes Apartments, Boma<br>Fort Portal City, Kabarole District, Uganda</span>
           </div>
         </div>
-        <a href="https://wa.me/256786625633" target="_blank" class="contact-wa-big">
-          <div class="wa-icon">💬</div>
-          <div>
-            <span class="wa-text-main">Chat on WhatsApp — Fast & Free</span>
-            <span class="wa-text-sub">+256 786 625 633 · We respond quickly!</span>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="contact-item-text">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/256786625633">+256 786 625 633</a>
           </div>
-        </a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <a href="mailto:info@dembetoursuganda.com">info@dembetoursuganda.com</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+          <div class="contact-item-text">
+            <strong>Office Hours</strong>
+            <span>Mon–Sat: 8:00 AM – 7:00 PM<br>Sunday: 9:00 AM – 5:00 PM</span>
+          </div>
+        </div>
       </div>
-      <div class="contact-form-wrap reveal reveal-delay-2">
-        <h3 class="form-title">Request a Custom Quote</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="John">
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Doe">
-          </div>
+    </div>
+    <div class="contact-form">
+      <h3>Book Your Safari</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John" />
         </div>
         <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="john@example.com">
+          <label>Last Name</label>
+          <input type="text" placeholder="Doe" />
         </div>
-        <div class="form-group">
-          <label>WhatsApp / Phone</label>
-          <input type="tel" placeholder="+1 234 567 8900">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Safari Type</label>
-            <select>
-              <option value="">Select Experience...</option>
-              <option>Gorilla Trekking</option>
-              <option>Chimpanzee Trekking</option>
-              <option>Rwenzori Expedition</option>
-              <option>Wildlife Game Drive</option>
-              <option>Crater Lakes Tour</option>
-              <option>Bird Watching</option>
-              <option>Cultural Tour</option>
-              <option>Full Uganda Circuit</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Group Size</label>
-            <select>
-              <option>Solo traveller</option>
-              <option>2 people</option>
-              <option>3–5 people</option>
-              <option>6–10 people</option>
-              <option>10+ people</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Preferred Travel Period</label>
-          <input type="month" min="2025-01">
-        </div>
-        <div class="form-group">
-          <label>Tell Us Your Dream Safari</label>
-          <textarea placeholder="Share any special interests, dates, or requirements — we'll design a tailored experience just for you!"></textarea>
-        </div>
-        <button class="form-submit" onclick="handleFormSubmit(event)">
-          🌿 Send My Safari Request
-        </button>
       </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="john@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+1 234 567 890" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Tour Type</label>
+          <select>
+            <option>Gorilla Trekking</option>
+            <option>Chimp Tracking</option>
+            <option>Rwenzori Trek</option>
+            <option>Crater Lake Tour</option>
+            <option>Bird Watching</option>
+            <option>Cultural Tour</option>
+            <option>Custom Package</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>No. of Travelers</label>
+          <select>
+            <option>1 Person</option>
+            <option>2 People</option>
+            <option>3–5 People</option>
+            <option>6–10 People</option>
+            <option>10+ People</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Travel Date</label>
+        <input type="date" />
+      </div>
+      <div class="form-group">
+        <label>Special Requests / Message</label>
+        <textarea placeholder="Tell us about your dream safari..."></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">
+        <i class="fas fa-paper-plane"></i> Send Booking Request
+      </button>
     </div>
   </div>
 </section>
 
-<!-- ========== FOOTER ========== -->
+<!-- WHATSAPP FLOAT -->
+<div class="whatsapp-float">
+  <div class="whatsapp-label">Chat with us now!</div>
+  <a href="https://wa.me/256786625633" target="_blank" class="whatsapp-btn">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-logo">
-          <div class="footer-emblem">🦍</div>
-          <div>
-            <span class="footer-brand-name">Dembe Tours</span>
-            <span class="footer-brand-sub">& Travel Safaris Co. Ltd</span>
-          </div>
-        </div>
-        <p class="footer-about-text">
-          Fort Portal's premier tour operator, proudly rooted in the Rwenzori region. 
-          We connect you with Uganda's most extraordinary wild places with authenticity, 
-          expertise, and genuine local love for this Pearl of Africa.
-        </p>
-        <div class="footer-socials">
-          <a href="https://wa.me/256786625633" target="_blank" class="social-btn">💬</a>
-          <a href="#" class="social-btn">📘</a>
-          <a href="#" class="social-btn">📸</a>
-          <a href="#" class="social-btn">🐦</a>
-          <a href="#" class="social-btn">▶️</a>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-logo">
+        <div class="footer-brand-logo-icon"><i class="fas fa-binoculars"></i></div>
+        <div class="footer-brand-logo-text">
+          <strong>Dembe Tours</strong>
+          <span>& Travel Safaris</span>
         </div>
       </div>
-      <div class="footer-col">
-        <h4>Destinations</h4>
-        <ul class="footer-links">
-          <li><a href="#">Bwindi Forest</a></li>
-          <li><a href="#">Rwenzori Mountains</a></li>
-          <li><a href="#">Queen Elizabeth NP</a></li>
-          <li><a href="#">Kibale Forest</a></li>
-          <li><a href="#">Crater Lakes</a></li>
-          <li><a href="#">Semuliki Park</a></li>
-          <li><a href="#">Murchison Falls</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Experiences</h4>
-        <ul class="footer-links">
-          <li><a href="#">Gorilla Trekking</a></li>
-          <li><a href="#">Chimp Tracking</a></li>
-          <li><a href="#">Game Drives</a></li>
-          <li><a href="#">Mountain Climbing</a></li>
-          <li><a href="#">Bird Watching</a></li>
-          <li><a href="#">Cultural Tours</a></li>
-          <li><a href="#">Boat Cruises</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Info</h4>
-        <ul class="footer-links">
-          <li><a href="#">About Dembe</a></li>
-          <li><a href="#">Why Uganda?</a></li>
-          <li><a href="#">Travel Tips</a></li>
-          <li><a href="#">Visa Info</a></li>
-          <li><a href="#">Packing Guide</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="https://wa.me/256786625633" target="_blank">WhatsApp Us</a></li>
-        </ul>
+      <p class="footer-brand-desc">
+        Your trusted safari partner in Uganda's most spectacular region. We craft authentic, sustainable, and unforgettable experiences in the heart of Western Uganda's Rwenzori region.
+      </p>
+      <div class="footer-socials">
+        <a href="#" class="footer-social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="footer-social"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="footer-social"><i class="fab fa-twitter"></i></a>
+        <a href="https://wa.me/256786625633" class="footer-social"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="footer-social"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">
-        © 2026 Dembe Tours & Travel Safaris Co. Limited · Fort Portal Tourism City, Uganda · All Rights Reserved
-      </div>
-      <div class="footer-dev">
-        Designed & Built by <a href="https://wa.me/256779491167" target="_blank">Wizcom Dev</a> · Fort Portal 🇺🇬
-      </div>
+    <div class="footer-col">
+      <h4>Destinations</h4>
+      <ul class="footer-links">
+        <li><a href="#destinations">Rwenzori Mountains</a></li>
+        <li><a href="#destinations">Kibale Forest</a></li>
+        <li><a href="#destinations">Queen Elizabeth NP</a></li>
+        <li><a href="#destinations">Crater Lakes</a></li>
+        <li><a href="#destinations">Bwindi Forest</a></li>
+        <li><a href="#destinations">Semuliki NP</a></li>
+      </ul>
     </div>
+    <div class="footer-col">
+      <h4>Experiences</h4>
+      <ul class="footer-links">
+        <li><a href="#experiences">Gorilla Trekking</a></li>
+        <li><a href="#experiences">Chimp Tracking</a></li>
+        <li><a href="#experiences">Bird Watching</a></li>
+        <li><a href="#experiences">Cultural Tours</a></li>
+        <li><a href="#experiences">Mountain Trekking</a></li>
+        <li><a href="#experiences">Boat Safaris</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#packages">Tour Packages</a></li>
+        <li><a href="#accommodation">Accommodation</a></li>
+        <li><a href="#contact">Book a Safari</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Dembe Tours and Travel Safaris Co. Limited. All Rights Reserved.</p>
+    <div class="footer-dev">Designed & Built by <a href="https://wa.me/256779491167">Wizcom Dev</a> — Fort Portal, Uganda</div>
   </div>
 </footer>
 
 <script>
-/* ========== CURSOR ========== */
-const cursor = document.getElementById('cursor');
-const cursorRing = document.getElementById('cursorRing');
-let mouseX = 0, mouseY = 0;
-let ringX = 0, ringY = 0;
-
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top  = mouseY + 'px';
-});
-function animateRing() {
-  ringX += (mouseX - ringX) * 0.12;
-  ringY += (mouseY - ringY) * 0.12;
-  cursorRing.style.left = ringX + 'px';
-  cursorRing.style.top  = ringY + 'px';
-  requestAnimationFrame(animateRing);
-}
-animateRing();
-
-document.querySelectorAll('a, button, .dest-card, .exp-card, .gal-item, .test-card').forEach(el => {
-  el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); cursorRing.classList.add('hover'); });
-  el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); cursorRing.classList.remove('hover'); });
-});
-
-/* ========== NAVBAR ========== */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) navbar.classList.add('solid');
-  else navbar.classList.remove('solid');
-});
-
-/* ========== MOBILE NAV ========== */
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobileNav');
-const mobileClose = document.getElementById('mobileClose');
-hamburger.addEventListener('click', () => { mobileNav.classList.add('open'); });
-mobileClose.addEventListener('click', () => { mobileNav.classList.remove('open'); });
-mobileNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => mobileNav.classList.remove('open'));
-});
-
-/* ========== HERO SLIDESHOW ========== */
-const slides = document.querySelectorAll('.hero-slide');
-const indicators = document.querySelectorAll('.indicator');
-let current = 0;
-function nextSlide() {
-  slides[current].classList.remove('active');
-  indicators[current].classList.remove('active');
-  current = (current + 1) % slides.length;
-  slides[current].classList.add('active');
-  indicators[current].classList.add('active');
-}
-setInterval(nextSlide, 5000);
-indicators.forEach(ind => {
-  ind.addEventListener('click', () => {
-    slides[current].classList.remove('active');
-    indicators[current].classList.remove('active');
-    current = parseInt(ind.dataset.slide);
-    slides[current].classList.add('active');
-    indicators[current].classList.add('active');
-  });
-});
-
-/* ========== SCROLL REVEAL ========== */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-/* ========== FORM SUBMIT ========== */
-function handleFormSubmit(e) {
-  e.preventDefault();
-  const btn = e.target;
-  btn.textContent = '✓ Sending...';
-  btn.style.background = 'var(--green-rich)';
-  setTimeout(() => {
-    btn.textContent = '🎉 Request Sent! We\'ll WhatsApp you shortly.';
-    btn.style.background = '#25D366';
+  // ── CURSOR
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
     setTimeout(() => {
-      btn.textContent = '🌿 Send My Safari Request';
-      btn.style.background = '';
-    }, 4000);
-  }, 1200);
-}
-
-/* ========== SMOOTH ANCHOR ========== */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 80);
   });
-});
 
-/* ========== COUNTER ANIMATION (stat numbers) ========== */
-function animateCounter(el, target, suffix = '') {
-  let start = 0;
-  const step = target / 60;
-  const timer = setInterval(() => {
-    start = Math.min(start + step, target);
-    el.textContent = (Number.isInteger(target) ? Math.floor(start) : start.toFixed(1)) + suffix;
-    if (start >= target) clearInterval(timer);
-  }, 25);
-}
-const statNums = document.querySelectorAll('.stat-num');
-const statObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const text = el.textContent;
-      const num = parseFloat(text.replace(/[^0-9.]/g,''));
-      const suffix = text.replace(/[0-9.]/g,'');
-      animateCounter(el, num, suffix);
-      statObserver.unobserve(el);
-    }
+  // ── NAV SCROLL
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
   });
-}, { threshold: 0.5 });
-statNums.forEach(el => statObserver.observe(el));
+
+  // ── HAMBURGER
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // ── SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = '0.1s';
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── WHATSAPP
+  function openWhatsApp(pkg) {
+    const msg = encodeURIComponent(`Hello! I'm interested in the *${pkg}* from Dembe Tours. Please share more details.`);
+    window.open(`https://wa.me/256786625633?text=${msg}`, '_blank');
+  }
+
+  // ── FORM SUBMIT
+  function submitForm() {
+    const msg = encodeURIComponent(`Hello Dembe Tours! I'd like to book a safari. I filled in your form on the website.`);
+    window.open(`https://wa.me/256786625633?text=${msg}`, '_blank');
+  }
+
+  // ── SMOOTH scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
 </script>
 </body>
 </html>
